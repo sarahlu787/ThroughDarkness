@@ -1,7 +1,8 @@
 
-public class Character 
+public class Character
 {
 
+	
 	
 	public Character() 
 	{
@@ -31,6 +32,15 @@ public class Character
 	public void act()
 	{
 		
+	}
+	
+	
+	
+	// returns the current position of the character
+	// might have to make a package like what we did in GridWorld?
+	public Position getCurrentPosition(){
+
+		return new Position(1,2);
 	}
 
 }
