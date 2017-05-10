@@ -38,9 +38,9 @@ public class Character
 	
 	// returns the current position of the character
 	// might have to make a package like what we did in GridWorld?
-	public Position getCurrentPosition(){
+	public Location getCurrentPosition(){
 
-		return new Position(1,2);
+		return new Location(1,2);
 	}
 
 }
