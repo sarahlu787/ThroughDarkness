@@ -6,17 +6,20 @@ public class Location {
 	private int row; // row location in grid
 	private int col; // column location in grid
 	
-	public Location(int r, int c) {
+	public Location(int r, int c) 
+	{
 		row = r;
 		col = c;
 	}
 	
 	
-	public int getRow(){
+	public int getRow()
+	{
 		return row;
 	}
 	
-	public int getCol(){
+	public int getCol()
+	{
 		return col;
 	}
 

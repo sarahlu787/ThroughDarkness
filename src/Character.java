@@ -1,12 +1,13 @@
 
 public class Character extends Actor
 {
-
+	private Location location;
 	
 	
-	public Character() 
+	
+	public Character(int row, int col) 
 	{
-		
+		location = new Location(row,col);
 	}
 	
 	public void moveLeft()
@@ -40,7 +41,8 @@ public class Character extends Actor
 	// might have to make a package like what we did in GridWorld?
 	public Location getCurrentPosition(){
 
-		return new Location(1,2);
+		return location;
 	}
+
 
 }
