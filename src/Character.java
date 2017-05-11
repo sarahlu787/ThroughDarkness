@@ -1,5 +1,5 @@
 
-public class Character
+public class Character extends Actor
 {
 
 	

@@ -1,8 +1,11 @@
 
-public class Grid {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class Grid 
+{
+	Direction direction = new Direction();
+	
+	public static void main(String[] args) 
+	{
+		
 
 	}
 

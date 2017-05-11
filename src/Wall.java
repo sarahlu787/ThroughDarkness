@@ -1,9 +1,11 @@
 
 
-public class Wall {
+public class Wall extends Actor
+{
 
-	public Wall() {
-		// TODO Auto-generated constructor stub
+	public Wall() 
+	{
+		
 	}
 
 }
