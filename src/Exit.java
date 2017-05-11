@@ -1,4 +1,6 @@
 
+import info.gridworld.grid.Location;
+
 public class Exit extends Actor
 {
 	private Location location;
@@ -13,5 +15,6 @@ public class Exit extends Actor
 	{
 		return location;
 	}
+	
 
 }

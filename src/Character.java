@@ -1,4 +1,8 @@
 
+import info.gridworld.grid.Grid;
+import info.gridworld.grid.Location;
+
+
 public class Character extends Actor
 {
 	private Location location;
@@ -30,10 +34,15 @@ public class Character extends Actor
 		
 	}
 	
-	public void act()
-	{
-		
+	public boolean canMove() {
+		Grid<Actor> gr = getGrid();
+		Location loc = getLocation();
+		Location next = loc.getAdjacentLocation(getDirection());
+		Actor neighbor = gr.get(next);
+		return (neighbor==null);
 	}
+	
+	
 	
 	
 	
