@@ -17,7 +17,7 @@ public class Main extends JFrame{
 	    cardPanel.setLayout(cl);
 	    
 		HomeScreen panel1 = new HomeScreen(this);    
-	    GamePanel panel2 = new GamePanel();
+	    Grid panel2 = new Grid();
 	    
 	    addKeyListener(panel2.getKeyHandler());
 	

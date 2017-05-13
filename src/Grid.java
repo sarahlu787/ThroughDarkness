@@ -1,10 +1,18 @@
 import java.util.ArrayList;
 
+import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
+
 import info.gridworld.grid.AbstractGrid;
 import info.gridworld.grid.Location;
 
 public class Grid<E> extends AbstractGrid<E>
 {
+	
+	private Character character;
+	private ArrayList<Wall> obstacles;
+	  
+	private KeyHandler keyControl;
+	
 	Direction direction = new Direction();
 	private Object[][] occupantArray;
 	
