@@ -1,8 +1,25 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class HomeScreen {
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
-	public HomeScreen() {
-		// TODO Auto-generated constructor stub
+public class HomeScreen extends JPanel implements ActionListener{
+
+	Main w;
+		
+	public HomeScreen(Main w) {
+		this.w = w;
+		JButton button = new JButton("Press me!");
+		button.addActionListener(this);
+		add(button);
 	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		w.changePanel("2");
+	}
+
+	
 
 }

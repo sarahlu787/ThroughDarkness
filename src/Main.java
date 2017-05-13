@@ -6,4 +6,9 @@ public class Main {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void changePanel(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
