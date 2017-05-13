@@ -1,3 +1,5 @@
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
@@ -17,9 +19,14 @@ public class Grid<E> extends AbstractGrid<E>
 	private Object[][] occupantArray;
 	
 	public Grid(int rows, int cols) {
+		keyControl = new KeyHandler();
 		occupantArray = new Object[rows][cols];
 	}
 
+	 public KeyHandler getKeyHandler() {
+		  return keyControl;
+	  }
+	
 	@Override
     public E get(Location loc)
     {
@@ -78,4 +85,36 @@ public class Grid<E> extends AbstractGrid<E>
         occupantArray[loc.getRow()][loc.getCol()] = null;
         return r;
     }
+	
+	
+	public class KeyHandler implements KeyListener {
+
+		  private ArrayList<Integer> keys;
+
+		  public KeyHandler() {
+			  keys = new ArrayList<Integer>();
+		  }
+
+		  public void keyPressed(KeyEvent e) {
+			  keys.add(e.getKeyCode());
+		  }
+
+		  public void keyReleased(KeyEvent e) {
+			  Integer code = e.getKeyCode();
+			  while(keys.contains(code))
+				  keys.remove(code);
+		  }
+
+		  public void keyTyped(KeyEvent e) {
+
+		  }
+		  
+		  public boolean isPressed(int code) {
+			  return keys.contains(code);
+		  }
+
+		
+
+
+	  }
 }
