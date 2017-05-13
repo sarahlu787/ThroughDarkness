@@ -24,11 +24,14 @@ public class Main extends JFrame{
 	    
 		HomeScreen panel1 = new HomeScreen(this);    
 	    Grid panel2 = new Grid(row,col);
+	    InstructionScreen panel3 = new InstructionScreen(this);
 	    
 	    addKeyListener(panel2.getKeyHandler());
+	    addKeyListener(panel3.getKeyHandler());
 	
 	    cardPanel.add(panel1,"1");
 	    //cardPanel.add(panel2,"2");
+	    cardPanel.add(panel3,"3");
 	    
 	    add(cardPanel);
 	

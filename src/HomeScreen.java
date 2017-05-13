@@ -10,7 +10,7 @@ public class HomeScreen extends JPanel implements ActionListener{
 		
 	public HomeScreen(Main w) {
 		this.w = w;
-		JButton button = new JButton("Press me!");
+		JButton button = new JButton("START");
 		button.addActionListener(this);
 		add(button);
 	}
