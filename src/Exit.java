@@ -13,10 +13,7 @@ public class Exit extends Actor
 	}
 	
 
-	public Location getLocation() 
-	{
-		return location;
-	}
+
 
 
 	@Override
