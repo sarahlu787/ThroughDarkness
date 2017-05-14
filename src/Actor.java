@@ -1,10 +1,10 @@
-
 import java.awt.Color;
+import java.awt.Graphics;
 
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
-public class Actor 
+public abstract class Actor 
 {
 	private Grid<Actor> grid;
 	private Location location;
@@ -92,6 +92,8 @@ public class Actor
 	public void act() {
 		
 	}
+	
+	public abstract void paint(Graphics g, int x, int y);
 	
 	public String toString() {
 		return getClass().getName() + "[location=" + location + ",direction="

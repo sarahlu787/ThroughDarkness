@@ -1,4 +1,6 @@
 
+import java.awt.Graphics;
+
 import info.gridworld.grid.Location;
 
 public class Exit extends Actor
@@ -14,6 +16,13 @@ public class Exit extends Actor
 	public Location getLocation() 
 	{
 		return location;
+	}
+
+
+	@Override
+	public void paint(Graphics g, int x, int y) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

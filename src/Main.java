@@ -24,8 +24,9 @@ public class Main extends JFrame{
 	    CardLayout cl = new CardLayout();
 	    cardPanel.setLayout(cl);
 	    
-		HomeScreen panel1 = new HomeScreen(this);    
-	    //Grid panel2 = new Grid(row,col);
+		HomeScreen panel1 = new HomeScreen(this);
+		Grid<Actor> grid = new Grid<Actor>(row, col);
+	    GridPanel panel2 = new GridPanel(grid);
 	    InstructionScreen panel3 = new InstructionScreen(this);
 		JLabel label1 = new JLabel("   11233 ");
 		panel3.add(label1);
@@ -33,7 +34,7 @@ public class Main extends JFrame{
 	    //addKeyListener(panel2.getKeyHandler());
 	
 	    cardPanel.add(panel1,"1");
-	    //cardPanel.add(panel2,"2");
+	    cardPanel.add(panel2,"2");
 	    cardPanel.add(panel3,"3");
 	    
 	    add(cardPanel);
