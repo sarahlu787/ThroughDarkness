@@ -5,6 +5,9 @@ import java.awt.Graphics;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
+
+//Actor Class
+
 public abstract class Actor 
 {
 	private Grid<Actor> grid;

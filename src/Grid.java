@@ -10,6 +10,7 @@ import info.gridworld.grid.Location;
 public class Grid<E> extends AbstractGrid<E>
 {
 	
+	
 	private Character character;
 	private ArrayList<Wall> obstacles;
 	  
