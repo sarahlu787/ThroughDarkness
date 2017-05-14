@@ -11,10 +11,7 @@ public class Wall extends Actor
 	
 	
 	//override and does nothing
-	public void act() 
-	{
-		
-	}
+
 
 
 	@Override
