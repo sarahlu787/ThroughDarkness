@@ -11,7 +11,8 @@ public class Wall extends Actor
 	
 	
 	//override and does nothing
-	public void act() {
+	public void act() 
+	{
 		
 	}
 
@@ -21,5 +22,6 @@ public class Wall extends Actor
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
