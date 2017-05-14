@@ -1,4 +1,3 @@
-
 public class Direction 
 {
 	private double direction; 

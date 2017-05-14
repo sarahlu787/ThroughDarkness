@@ -1,4 +1,3 @@
-
 import java.awt.Graphics;
 
 import info.gridworld.grid.Grid;
