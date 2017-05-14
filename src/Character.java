@@ -1,4 +1,6 @@
 
+import java.awt.Graphics;
+
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
@@ -51,6 +53,12 @@ public class Character extends Actor
 	public Location getCurrentPosition(){
 
 		return location;
+	}
+
+	@Override
+	public void paint(Graphics g, int x, int y) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
