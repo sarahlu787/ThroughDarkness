@@ -21,12 +21,12 @@ public class GridPanel extends JPanel implements KeyListener{
 	@Override
 	protected void paintComponent(Graphics g) {
 		//g.drawLine(10, 20, 30, 40);
-		for (int y = 0; y < grid.getNumRows(); y++) {
-			for (int x = 0; x < grid.getNumCols(); x++) {
-				Actor actor = grid.get(new Location(x, y));
-				System.out.println(x + " " + y + " " + actor );
+		for (int r = 0; r < grid.getNumRows(); r++) {
+			for (int c = 0; c < grid.getNumCols(); c++) {
+				Actor actor = grid.get(new Location(r, c));
+				//System.out.println(x + " " + y + " " + actor );
 				if (actor != null){
-				    actor.paint(g, x * GRID_SIZE, y * GRID_SIZE);
+				    actor.paint(g, c * GRID_SIZE, r * GRID_SIZE);
 				    
 				}
 					
@@ -49,6 +49,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		Character c = grid.getCharacter();
+		//System.out.println(grid.getCharacter());
 		if(e.getKeyCode() == KeyEvent.VK_LEFT){
 			c.moveLeft();
 		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT){

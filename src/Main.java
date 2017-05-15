@@ -27,6 +27,7 @@ public class Main extends JFrame{
 		HomeScreen panel1 = new HomeScreen(this);
 		Grid grid = new Grid(row, col);
 	    GridPanel panel2 = new GridPanel(grid);
+	    this.addKeyListener(panel2);
 	    InstructionScreen panel3 = new InstructionScreen(this);
 		JLabel label1 = new JLabel("   11233 ");
 		panel3.add(label1);

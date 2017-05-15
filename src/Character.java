@@ -19,6 +19,7 @@ public class Character extends Actor
 	}
 	
 	public void move() {
+		//System.out.println(canMove());
 		if (canMove())
 		    moveTo(getLocation().getAdjacentLocation(getDirection()));
 	}
@@ -72,7 +73,7 @@ public class Character extends Actor
 	@Override
 	public void paint(Graphics g, int x, int y) {
 		
-		g.drawImage(image,x,y,20,20, null);
+		g.drawImage(image,x,y,20,20,null);
 	}
 
 
