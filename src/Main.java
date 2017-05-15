@@ -4,12 +4,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class Main extends JFrame{
 	
 	private int row;
 	private int col;
 	
 	JPanel cardPanel;
+	
+	/**
+	 * The constructor creates the HomeScreen, Grid, and adds them o the window. 
+	 * It also sets the number of rows and columns in the grid.
+	 * @param title the name of the Main object
+	 */
 	
 	public Main(String title) {
 		super(title);
@@ -43,11 +50,19 @@ public class Main extends JFrame{
 	    setVisible(true);
 	}
 
+	/**
+	 * The main method creates a new Main object called ThroughDarkness.
+	 * @param args the parameter for the main mehtod
+	 */
 	public static void main(String[] args)
 	{
 		Main w = new Main("ThroughDarkness");
 	}
   
+	/**
+	 * The changePanel changes the panel's layout.
+	 * @param name the name of the panel
+	 */
 	public void changePanel(String name) {
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,name);
 		requestFocus();

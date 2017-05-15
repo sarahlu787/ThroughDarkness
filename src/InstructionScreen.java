@@ -10,10 +10,21 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * The InstructionScreen displays the screen of instructions and its buttons.
+ * @author Sarah Lu, Ally Wang
+ * @version 5/15/17
+ *
+ */
 public class InstructionScreen extends JPanel implements ActionListener{
 
 	Main w;
 	private JButton button;
+	
+	/**
+	 * The constructor sets the layout and the buttons.
+	 * @param w the Main object (the window)
+	 */
 	public InstructionScreen(Main w) {
 		this.w = w;
 
@@ -29,6 +40,10 @@ public class InstructionScreen extends JPanel implements ActionListener{
 
 	}
 
+	/**
+	 * The paintComponent method displays the instrutions on the screen and sets the location of the button.
+	 * @param g the Graphics component
+	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -40,6 +55,9 @@ public class InstructionScreen extends JPanel implements ActionListener{
 	}
 	
 	@Override
+	/**
+	 * The actionPerformed method changes the panel to the home screen when the button is pressed.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		w.changePanel("1");
 		

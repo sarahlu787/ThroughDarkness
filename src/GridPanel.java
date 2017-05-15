@@ -9,18 +9,33 @@ import javax.swing.JPanel;
 
 import info.gridworld.grid.Location;
 
+/**
+ * The GridPanel displays the grid, the actors in the grid, and defines the Character's movements.
+ * @author Sarah Lu, Ally Wang
+ * @version 5/15/17
+ *
+ */
 public class GridPanel extends JPanel implements KeyListener{
   
 	public static final int GRID_SIZE = 16;
 	private Grid grid;
 	private Image background = new ImageIcon("whiteBackground.jpg").getImage();
 
+	/**
+	 * The constructor sets the grid.
+	 * @param grid the grid object from Main
+	 */
 	public GridPanel(Grid grid) {
 		this.grid = grid;
 
 	}
 
 	@Override
+	
+	/**
+	 * The paintComponent method draws the grid and all the Actors in it.
+	 * @param g the Graphics component
+	 */
 	protected void paintComponent(Graphics g) {
 		//g.drawLine(10, 20, 30, 40);
 		g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
@@ -40,7 +55,10 @@ public class GridPanel extends JPanel implements KeyListener{
 }
 	
 	
-	
+	/**
+	 * The getGrid Size method returns the size of the grid.
+	 * @return the size of the grid as an integer
+	 */
 	public int getGridSize() {
 		return GRID_SIZE;
 	}
@@ -54,6 +72,9 @@ public class GridPanel extends JPanel implements KeyListener{
 	}
 
 	@Override
+	/**
+	 * The keyPressed method defines the Character's movement when certain keys are pressed.
+	 */
 	public void keyPressed(KeyEvent e) {
 		Character c = grid.getCharacter();
 		//System.out.println(grid.getCharacter());
@@ -79,4 +100,4 @@ public class GridPanel extends JPanel implements KeyListener{
 	
 	
 	
-}
+} 
