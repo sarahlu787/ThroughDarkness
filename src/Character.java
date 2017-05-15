@@ -73,7 +73,7 @@ public class Character extends Actor
 	@Override
 	public void paint(Graphics g, int x, int y) {
 		
-		g.drawImage(image,x,y,20,20,null);
+		g.drawImage(image,x,y,15,15,null);
 	}
 
 

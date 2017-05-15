@@ -1,17 +1,19 @@
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import info.gridworld.grid.Location;
 
 public class GridPanel extends JPanel implements KeyListener{
   
-	private static final int GRID_SIZE = 20;
+	private static final int GRID_SIZE = 15;
 	private Grid grid;
-	
+	private Image background = new ImageIcon("whiteBackground.jpg").getImage();
 
 	public GridPanel(Grid grid) {
 		this.grid = grid;
@@ -21,6 +23,8 @@ public class GridPanel extends JPanel implements KeyListener{
 	@Override
 	protected void paintComponent(Graphics g) {
 		//g.drawLine(10, 20, 30, 40);
+		g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
+		
 		for (int r = 0; r < grid.getNumRows(); r++) {
 			for (int c = 0; c < grid.getNumCols(); c++) {
 				Actor actor = grid.get(new Location(r, c));
@@ -36,7 +40,9 @@ public class GridPanel extends JPanel implements KeyListener{
 	
 	
 	
-	
+	public int getGridSize() {
+		return GRID_SIZE;
+	}
 	
 
 
