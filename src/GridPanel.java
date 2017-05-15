@@ -11,7 +11,7 @@ import info.gridworld.grid.Location;
 
 public class GridPanel extends JPanel implements KeyListener{
   
-	private static final int GRID_SIZE = 15;
+	public static final int GRID_SIZE = 16;
 	private Grid grid;
 	private Image background = new ImageIcon("whiteBackground.jpg").getImage();
 

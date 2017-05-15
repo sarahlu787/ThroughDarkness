@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
@@ -55,8 +56,9 @@ public class Character extends Actor
 		Grid gr = getGrid();
 		Location loc = getLocation();
 		Location next = loc.getAdjacentLocation(getDirection());
-		Actor neighbor = gr.get(next);
-		return (neighbor==null) && gr.isValid(next);
+		if(!gr.isValid(next))
+			return false;
+		return gr.get(next) == null;
 	}
 	
 	public int getRow() {
@@ -72,8 +74,12 @@ public class Character extends Actor
 	
 	@Override
 	public void paint(Graphics g, int x, int y) {
+		g.setColor(Color.BLACK);
+		//g.fillOval(x-32, y-32, 80, 80);
+		g.drawArc(x-32, y-32, 80, 80, 0, 360);
 		
-		g.drawImage(image,x,y,15,15,null);
+		g.drawImage(image,x,y,GridPanel.GRID_SIZE,GridPanel.GRID_SIZE,null);
+		
 	}
 
 

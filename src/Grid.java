@@ -1,9 +1,5 @@
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
-
-import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
 
 import info.gridworld.grid.AbstractGrid;
 import info.gridworld.grid.Location;
@@ -14,6 +10,7 @@ public class Grid extends AbstractGrid<Actor>
 	
 	private Character character;
 	private ArrayList<Wall> obstacles;
+	private Wall wall;
 
 	
 	Direction direction = new Direction();
@@ -23,6 +20,18 @@ public class Grid extends AbstractGrid<Actor>
 		occupantArray = new Object[rows][cols];
 		character = new Character();
 		character.putSelfInGrid(this, new Location(rows/2, cols/2));
+		obstacles = new ArrayList<Wall>();
+		
+		for(int i = 0; i < cols; i++) {
+			//wall = new Wall();
+			obstacles.add(new Wall());
+			if(i < cols/2)
+				obstacles.get(i).putSelfInGrid(this, new Location(5,i));
+			if(i > cols/2) 
+				obstacles.get(i).putSelfInGrid(this, new Location(7,i));
+
+			
+		}
 	}
 	
 	@Override
