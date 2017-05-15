@@ -11,6 +11,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * The HomeScreen class displays the home screen and its buttons.
+ * @author Sarah Lu, Ally Wang
+ * @version 5/15/17
+ *
+ */
 public class HomeScreen extends JPanel {
 
 	Main w;
@@ -18,6 +24,10 @@ public class HomeScreen extends JPanel {
 	private JButton button,button1;
 	private Label title;
 	
+	/**
+	 * The constructor sets the background and adds the buttons.
+	 * @param w the Main object (the window)
+	 */
 	public HomeScreen(Main w) {
 		image = new ImageIcon("background.jpg").getImage();
 		this.w = w;
@@ -51,6 +61,10 @@ public class HomeScreen extends JPanel {
 		
 	}
 	
+	/**
+	 * The paintComponent method draws everything on the home screen 
+	 * @param g the Graphics component
+	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(image, 0, 0, w.getWidth(), w.getHeight(), this);

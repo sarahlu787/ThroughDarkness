@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import info.gridworld.grid.AbstractGrid;
 import info.gridworld.grid.Location;
 
+
+/** 
+ * 
+ * 
+ * @author Alyce Brady
+ */
+
 public class Grid extends AbstractGrid<Actor>
 {
 	

@@ -8,43 +8,63 @@ import javax.swing.ImageIcon;
 
 import info.gridworld.grid.Location;
 
-
+/**
+ * The Character class extends Actor defines the character.
+ * @author Sarah Lu, Ally Wang
+ * @version 5/15/17
+ *
+ */
 public class Character extends Actor
 {
 	private Image image;
 	
-	
+	/**
+	 * The constructor sets the Character's image.
+	 */
 	public Character() 
 	{
 		image = new ImageIcon("character.jpg").getImage();
 	}
 	
+	/**
+	 * The move method defines the movement of the Character.
+	 */
 	public void move() {
-		//System.out.println(canMove());
 		if (canMove())
 		    moveTo(getLocation().getAdjacentLocation(getDirection()));
 	}
 	
 	
-	
+	/**
+	 * The moveLeft method moves the Character left.
+	 */
 	public void moveLeft()
 	{
 		setDirection(Location.WEST);
 		move();
 	}
 	
+	/**
+	 * The moveRight method moves the Character right.
+	 */
 	public void moveRight()
 	{
 		setDirection(Location.EAST);
 		move();
 	}
 	
+	/**
+	 * The moveUp method moves the Character up.
+	 */
 	public void moveUp()
 	{
 		setDirection(Location.NORTH);
 		move();
 	}
 	
+	/**
+	 * The moveDown method moves the Character down.
+	 */
 	public void moveDown()
 	{
 		setDirection(Location.SOUTH);
@@ -52,6 +72,11 @@ public class Character extends Actor
 		move();
 	}
 	
+	
+	/**
+	 * The canMove method determines if the Character can move in its current direction.		
+	 * @return true if the Character can move, false otherwise
+	 */
 	public boolean canMove() {
 		Grid gr = getGrid();
 		Location loc = getLocation();
@@ -61,10 +86,18 @@ public class Character extends Actor
 		return gr.get(next) == null;
 	}
 	
+	/**
+	 * The getRow method returns y-coordinate of the Character
+	 * @return the y-coordinate of the Character as an integer
+	 */
 	public int getRow() {
 		return getLocation().getRow();
 	}
 	
+	/**
+	 * The getRow method returns x-coordinate of the Character
+	 * @return the x-coordinate of the Character as an integer
+	 */
 	public int getCol() {
 		return getLocation().getCol();
 	}
@@ -73,6 +106,12 @@ public class Character extends Actor
 
 	
 	@Override
+	/**
+	 * The paint method draws the Character
+	 * @param g the Graphics component
+	 * @param x the x-coordinate of the Character
+	 * @param y the y-coordinate of the Character
+	 */
 	public void paint(Graphics g, int x, int y) {
 		g.setColor(Color.BLACK);
 		//g.fillOval(x-32, y-32, 80, 80);
