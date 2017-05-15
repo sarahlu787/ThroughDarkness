@@ -25,7 +25,7 @@ public class Main extends JFrame{
 	    cardPanel.setLayout(cl);
 	    
 		HomeScreen panel1 = new HomeScreen(this);
-		Grid<Actor> grid = new Grid<Actor>(row, col);
+		Grid grid = new Grid(row, col);
 	    GridPanel panel2 = new GridPanel(grid);
 	    InstructionScreen panel3 = new InstructionScreen(this);
 		JLabel label1 = new JLabel("   11233 ");

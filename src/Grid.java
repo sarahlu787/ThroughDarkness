@@ -8,34 +8,30 @@ import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
 import info.gridworld.grid.AbstractGrid;
 import info.gridworld.grid.Location;
 
-public class Grid<E> extends AbstractGrid<E>
+public class Grid extends AbstractGrid<Actor>
 {
 	
 	
 	private Character character;
 	private ArrayList<Wall> obstacles;
-	  
-	private KeyHandler keyControl;
+
 	
 	Direction direction = new Direction();
 	private Object[][] occupantArray;
 	
 	public Grid(int rows, int cols) {
-		keyControl = new KeyHandler();
 		occupantArray = new Object[rows][cols];
+		character = new Character();
+		character.putSelfInGrid(this, new Location(rows/2, cols/2));
 	}
-
-	 public KeyHandler getKeyHandler() {
-		  return keyControl;
-	  }
 	
 	@Override
-    public E get(Location loc)
+    public Actor get(Location loc)
     {
         if (!isValid(loc))
             throw new IllegalArgumentException("Location " + loc
                     + " is not valid");
-        return (E) occupantArray[loc.getRow()][loc.getCol()]; // unavoidable warning
+        return (Actor) occupantArray[loc.getRow()][loc.getCol()]; // unavoidable warning
     }
 
 	@Override
@@ -61,7 +57,7 @@ public class Grid<E> extends AbstractGrid<E>
 	}
 
 	@Override
-    public E put(Location loc, E obj)
+    public Actor put(Location loc, Actor obj)
     {
         if (!isValid(loc))
             throw new IllegalArgumentException("Location " + loc
@@ -70,53 +66,29 @@ public class Grid<E> extends AbstractGrid<E>
             throw new NullPointerException("obj == null");
 
         // Add the object to the grid.
-        E oldOccupant = get(loc);
+        Actor oldOccupant = get(loc);
         occupantArray[loc.getRow()][loc.getCol()] = obj;
         return oldOccupant;
     }
 
 	@Override
-    public E remove(Location loc)
+    public Actor remove(Location loc)
     {
         if (!isValid(loc))
             throw new IllegalArgumentException("Location " + loc
                     + " is not valid");
         
         // Remove the object from the grid.
-        E r = get(loc);
+        Actor r = get(loc);
         occupantArray[loc.getRow()][loc.getCol()] = null;
         return r;
     }
 	
+	public Character getCharacter() {
+		return character;
+	}
 	
-	public class KeyHandler implements KeyListener {
-
-		  private ArrayList<Integer> keys;
-
-		  public KeyHandler() {
-			  keys = new ArrayList<Integer>();
-		  }
-
-		  public void keyPressed(KeyEvent e) {
-			  keys.add(e.getKeyCode());
-		  }
-
-		  public void keyReleased(KeyEvent e) {
-			  Integer code = e.getKeyCode();
-			  while(keys.contains(code))
-				  keys.remove(code);
-		  }
-
-		  public void keyTyped(KeyEvent e) {
-
-		  }
-		  
-		  public boolean isPressed(int code) {
-			  return keys.contains(code);
-		  }
-
-		
 
 
-	  }
+	 
 }

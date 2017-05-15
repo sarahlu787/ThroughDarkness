@@ -1,64 +1,78 @@
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.ImageObserver;
 
-import info.gridworld.grid.Grid;
+import javax.swing.ImageIcon;
+
 import info.gridworld.grid.Location;
 
 
 public class Character extends Actor
 {
-	private Location location;
+	private Image image;
 	
 	
-	
-	public Character(int row, int col) 
+	public Character() 
 	{
-		location = new Location(row,col);
+		image = new ImageIcon("character.jpg").getImage();
 	}
+	
+	public void move() {
+		if (canMove())
+		    moveTo(getLocation().getAdjacentLocation(getDirection()));
+	}
+	
+	
 	
 	public void moveLeft()
 	{
-		
+		setDirection(Location.WEST);
+		move();
 	}
 	
 	public void moveRight()
 	{
-		
+		setDirection(Location.EAST);
+		move();
 	}
 	
 	public void moveUp()
 	{
-		
+		setDirection(Location.NORTH);
+		move();
 	}
 	
 	public void moveDown()
 	{
+		setDirection(Location.SOUTH);
 		
+		move();
 	}
 	
 	public boolean canMove() {
-		Grid<Actor> gr = getGrid();
+		Grid gr = getGrid();
 		Location loc = getLocation();
 		Location next = loc.getAdjacentLocation(getDirection());
 		Actor neighbor = gr.get(next);
-		return (neighbor==null);
+		return (neighbor==null) && gr.isValid(next);
 	}
 	
-	
-	
-	
-	
-	// returns the current position of the character
-	// might have to make a package like what we did in GridWorld?
-	public Location getCurrentPosition(){
-
-		return location;
+	public int getRow() {
+		return getLocation().getRow();
 	}
+	
+	public int getCol() {
+		return getLocation().getCol();
+	}
+	
 
+
+	
 	@Override
 	public void paint(Graphics g, int x, int y) {
-		// TODO Auto-generated method stub
 		
+		g.drawImage(image,x,y,20,20, null);
 	}
 
 
