@@ -1,7 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
 
@@ -9,7 +8,7 @@ import info.gridworld.grid.Location;
 
 public abstract class Actor 
 {
-	private Grid<Actor> grid;
+	private Grid grid;
 	private Location location;
 	private int direction;
 	private Color color;
@@ -17,6 +16,7 @@ public abstract class Actor
 	public Actor() {
 		//color = Color.BLACK;
 		//grid = null;
+
 		location = null;
 	}
 	
@@ -33,10 +33,10 @@ public abstract class Actor
 	}
 	
 	public void setDirection(int newDirection) {
-	
+		direction = newDirection;
 	}
 	
-    public Grid<Actor> getGrid()
+    public Grid getGrid()
     {
         return grid;
     }	
@@ -83,6 +83,20 @@ public abstract class Actor
         grid.remove(location);
         grid = null;
         location = null;
+    }
+	
+    public void putSelfInGrid(Grid gr, Location loc)
+    {
+        if (grid != null)
+            throw new IllegalStateException(
+                    "This actor is already contained in a grid.");
+
+        Actor actor = gr.get(loc);
+        if (actor != null)
+            actor.removeSelfFromGrid();
+        gr.put(loc, this);
+        grid = gr;
+        location = loc;
     }
 
 	

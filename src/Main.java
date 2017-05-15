@@ -13,11 +13,11 @@ public class Main extends JFrame{
 	
 	public Main(String title) {
 		super(title);
-		row = 20;
-		col = 20;
+		row = 40;
+		col = 40;
 
 		
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 700, 700);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    cardPanel = new JPanel();
@@ -25,11 +25,12 @@ public class Main extends JFrame{
 	    cardPanel.setLayout(cl);
 	    
 		HomeScreen panel1 = new HomeScreen(this);
-		Grid<Actor> grid = new Grid<Actor>(row, col);
+		Grid grid = new Grid(row, col);
 	    GridPanel panel2 = new GridPanel(grid);
+	    this.addKeyListener(panel2);
 	    InstructionScreen panel3 = new InstructionScreen(this);
-		JLabel label1 = new JLabel("   11233 ");
-		panel3.add(label1);
+		//JLabel label1 = new JLabel("   11233 ");
+		//panel3.add(label1);
 	    
 	    //addKeyListener(panel2.getKeyHandler());
 	
