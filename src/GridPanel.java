@@ -56,6 +56,7 @@ public class GridPanel extends JPanel implements KeyListener{
 		}
 		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
 		direction.paint(g, degree);
+		
 }
 	
 	

@@ -1,5 +1,7 @@
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -20,6 +22,7 @@ public class InstructionScreen extends JPanel implements ActionListener{
 
 	Main w;
 	private JButton button;
+	private Image image;
 	
 	/**
 	 * The constructor sets the layout and the buttons.
@@ -29,6 +32,7 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		this.w = w;
 
 		setLayout(null);
+		w.setBackground(Color.BLUE);
 		button = new JButton("BACK");
 		button.setBounds(w.getWidth()/2-50,w.getHeight()-100,100,20);
 

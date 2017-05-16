@@ -83,7 +83,7 @@ public class Character extends Actor
 		Location next = loc.getAdjacentLocation(getDirection());
 		if(!gr.isValid(next))
 			return false;
-		return gr.get(next) == null;
+		return (gr.get(next) == null);
 	}
 	
 	/**
