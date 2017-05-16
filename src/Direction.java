@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 /**
@@ -38,6 +39,7 @@ public class Direction
 	 */
 	public void paint(Graphics g, double degree)
 	{
+		
 		g.setColor(Color.BLACK);
 		double x2 = Math.sin(degree)*200;
 		double y2 = Math.cos(degree)*200;
