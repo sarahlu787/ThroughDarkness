@@ -38,14 +38,15 @@ public class Direction
 	/**
 	 * The paint method draws the direction on the screen.
 	 */
-	public void paint(Graphics g, double degree)
+	public void paint(Graphics g, double degree, int rows)
 	{
-		
+		int size = GridPanel.GRID_SIZE;
+		int height = rows*size;
 		g.setColor(Color.BLACK);
-		double x2 = Math.sin(degree)*200;
-		double y2 = Math.cos(degree)*200;
-		g.drawLine(300,300, 300+(int)x2, 300+(int)y2);
-		g.drawOval(300+(int)x2, 300+(int)y2, 20, 20);
+		double x2 = Math.sin(degree)*size*3;
+		double y2 = Math.cos(degree)*size*3;
+		g.drawLine(size*3,height-size*3, size*3+(int)x2, height-size*3+(int)y2);
+		g.drawOval(size*3+(int)x2, height-size*3+(int)y2, 20, 20);
 		
 	}
 	
