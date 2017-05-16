@@ -34,7 +34,7 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		this.w = w;
 
 		setLayout(null);
-		w.setBackground(Color.BLUE);
+		//w.setBackground(Color.BLUE);
 		button = new JButton("BACK");
 		button.setBounds(w.getWidth()/2-50,w.getHeight()-100,100,20);
 

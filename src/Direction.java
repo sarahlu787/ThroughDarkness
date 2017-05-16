@@ -46,7 +46,10 @@ public class Direction
 		double x2 = Math.sin(degree)*size*3;
 		double y2 = Math.cos(degree)*size*3;
 		g.drawLine(size*3,height-size*3, size*3+(int)x2, height-size*3+(int)y2);
-		g.drawOval(size*3+(int)x2, height-size*3+(int)y2, 20, 20);
+		//g.drawOval(size*3+(int)x2, height-size*3+(int)y2, 20, 20);
+		int x = size*3+(int)(Math.sin(degree)*size*4);
+		int y = height-size*3+(int)(Math.cos(degree)*size*4);
+		
 		
 	}
 	

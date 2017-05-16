@@ -1,10 +1,13 @@
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import info.gridworld.grid.Location;
@@ -17,17 +20,35 @@ import info.gridworld.grid.Location;
  */
 public class GridPanel extends JPanel implements KeyListener{
   
+	Main w;
 	public static final int GRID_SIZE = 16;
 	private Grid grid;
 	private Image background = new ImageIcon("whiteBackground.jpg").getImage();
 	private Direction direction = new Direction();
+	private JButton button1;
+	private JButton button2;
 	
 	/**
 	 * The constructor sets the grid.
 	 * @param grid the grid object from Main
 	 */
-	public GridPanel(Grid grid) {
+	public GridPanel(Grid grid, Main w) {
 		this.grid = grid;
+		this.w = w;
+		setLayout(null);
+		
+		button1 = new JButton("BACK");
+		button1.setBounds(w.getWidth()/2-50,w.getHeight()-60,100,20);
+
+		button1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				w.changePanel("1");
+			}
+			
+		});
+		add(button1);
+		
 
 	}
 
@@ -61,7 +82,10 @@ public class GridPanel extends JPanel implements KeyListener{
 		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
 		direction.paint(g, degree, rows);
 		
-}
+		
+		
+		
+	}
 	
 	
 	/**
