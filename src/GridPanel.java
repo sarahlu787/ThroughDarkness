@@ -20,7 +20,8 @@ public class GridPanel extends JPanel implements KeyListener{
 	public static final int GRID_SIZE = 16;
 	private Grid grid;
 	private Image background = new ImageIcon("whiteBackground.jpg").getImage();
-
+	private Direction direction = new Direction();
+	
 	/**
 	 * The constructor sets the grid.
 	 * @param grid the grid object from Main
@@ -40,6 +41,8 @@ public class GridPanel extends JPanel implements KeyListener{
 		//g.drawLine(10, 20, 30, 40);
 		g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		
+		
+		
 		for (int r = 0; r < grid.getNumRows(); r++) {
 			for (int c = 0; c < grid.getNumCols(); c++) {
 				Actor actor = grid.get(new Location(r, c));
@@ -51,7 +54,8 @@ public class GridPanel extends JPanel implements KeyListener{
 					
 			}
 		}
-	
+		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
+		direction.paint(g, degree);
 }
 	
 	
@@ -77,7 +81,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	 */
 	public void keyPressed(KeyEvent e) {
 		Character c = grid.getCharacter();
-		//System.out.println(grid.getCharacter());
+		
 		if(e.getKeyCode() == KeyEvent.VK_LEFT){
 			c.moveLeft();
 		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT){

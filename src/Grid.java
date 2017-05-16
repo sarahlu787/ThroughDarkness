@@ -19,6 +19,7 @@ public class Grid extends AbstractGrid<Actor>
 	private Character character;
 	private ArrayList<Wall> obstacles;
 	private Wall wall;
+	private Exit exit;
 
 	
 	Direction direction = new Direction();
@@ -34,6 +35,9 @@ public class Grid extends AbstractGrid<Actor>
 		character = new Character();
 		character.putSelfInGrid(this, new Location(rows/2, cols/2));
 		obstacles = new ArrayList<Wall>();
+		exit = new Exit();
+		exit.putSelfInGrid(this, new Location(rows-1,cols-1));
+
 		
 		for(int i = 0; i < cols; i++) {
 			//wall = new Wall();
@@ -131,8 +135,14 @@ public class Grid extends AbstractGrid<Actor>
 	public Character getCharacter() {
 		return character;
 	}
-	
-
+	/**
+	 * The getExit method returns the Exit in the grid.
+	 * @return the Exit from the grid
+	 */
+	public Exit getExit()
+	{
+		return exit;
+	}
 
 	 
 }
