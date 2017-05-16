@@ -27,11 +27,15 @@ public class Direction
 	 */
 	public double getDirection(Character c, Exit e)
 	{
+		
 		int y = e.getRow()-c.getRow();
 		int x = e.getCol()-c.getCol();
 		double z = Math.sqrt(y*y+x*x);
 		direction = Math.acos(y/z);
-		
+		if (e.getCol()<c.getCol())
+		{
+			direction = direction*-1;
+		}
 		return direction;
 	}
 

@@ -36,7 +36,7 @@ public class Grid extends AbstractGrid<Actor>
 		character.putSelfInGrid(this, new Location(rows/2, cols/2));
 		obstacles = new ArrayList<Wall>();
 		exit = new Exit();
-		exit.putSelfInGrid(this, new Location(rows-1,cols-1));
+		exit.putSelfInGrid(this, new Location(rows-5,cols-5));
 
 		
 		for(int i = 0; i < cols; i++) {
