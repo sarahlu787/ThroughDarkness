@@ -1,5 +1,6 @@
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,6 +39,8 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		button.setBounds(w.getWidth()/2-50,w.getHeight()-100,100,20);
 
 		button.addActionListener(this);
+		
+		image = new ImageIcon("instrucB.jpg").getImage();
 
 		
 		add(button);
@@ -51,10 +55,14 @@ public class InstructionScreen extends JPanel implements ActionListener{
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		g.drawString("Right Arrow Key: moves the character right", w.getWidth()/2-100, w.getHeight()/10);
-		g.drawString("Left Arrow Key: moves the character left", w.getWidth()/2-100, w.getHeight()/5);
-		g.drawString("Up Arrow Key: moves the character up",w.getWidth()/2-100, w.getHeight()*3/10);
-		g.drawString("Down Arrow Key: moves the character down", w.getWidth()/2-100, w.getHeight()*4/10);
+		g.drawImage(image, 0, 0, w.getWidth(), w.getHeight(), this);
+		g.setColor(Color.WHITE);
+		Font font = g.getFont().deriveFont( 15.0f );
+		g.setFont(font);
+		g.drawString("Right Arrow Key: moves the character right",w.getWidth()/10,w.getHeight()/10);
+		g.drawString("Left Arrow Key: moves the character left", w.getWidth()/10, w.getHeight()/5);
+		g.drawString("Up Arrow Key: moves the character up",w.getWidth()/10, w.getHeight()/10*3);
+		g.drawString("Down Arrow Key: moves the character down", w.getWidth()/10, w.getHeight()/5*2);
 		button.setBounds(w.getWidth()/2-50,w.getHeight()-100,100,20);
 	}
 	

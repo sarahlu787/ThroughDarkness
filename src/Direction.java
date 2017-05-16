@@ -1,6 +1,7 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
+
+import ally.shapes.Line;
 
 /**
  * The Direction class displays the direction as an arrow from the character to the exit.
@@ -8,6 +9,7 @@ import java.awt.Graphics;
  * @version 5/15/17
  *
  */
+
 public class Direction
 {
 	private double direction; 
@@ -15,7 +17,6 @@ public class Direction
 	public Direction() 
 	{
 		direction = 0;
-		
 	}
 	
 	
@@ -45,6 +46,8 @@ public class Direction
 		double y2 = Math.cos(degree)*200;
 		g.drawLine(300,300, 300+(int)x2, 300+(int)y2);
 		g.drawOval(300+(int)x2, 300+(int)y2, 20, 20);
+		
 	}
+	
 
 }
