@@ -41,7 +41,6 @@ public class Direction
 		g.setColor(Color.BLACK);
 		double x2 = Math.sin(degree)*200;
 		double y2 = Math.cos(degree)*200;
-		System.out.println(x2+" "+y2);
 		g.drawLine(300,300, 300+(int)x2, 300+(int)y2);
 		g.drawOval(300+(int)x2, 300+(int)y2, 20, 20);
 	}
