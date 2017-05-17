@@ -20,8 +20,8 @@ public class Main extends JFrame{
 	
 	public Main(String title) {
 		super(title);
-		row = 40;
-		col = 40;
+		row = 41;
+		col = 41;
 
 		
 		setBounds(100, 100, 700, 700);

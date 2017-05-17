@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import info.gridworld.grid.AbstractGrid;
 import info.gridworld.grid.Location;
@@ -20,10 +21,13 @@ public class Grid extends AbstractGrid<Actor>
 	private ArrayList<Wall> obstacles;
 	private Wall wall;
 	private Exit exit;
-
+	
+	private boolean[][] isWall;
 	
 	Direction direction = new Direction();
 	private Object[][] occupantArray;
+	private int rows,cols;
+	private int cr, cc;
 	
 	/**
 	 * The constructor creates a 2D array for the grid and adds Actors to it.
@@ -31,24 +35,122 @@ public class Grid extends AbstractGrid<Actor>
 	 * @param cols the number of columns in the grid
 	 */
 	public Grid(int rows, int cols) {
-		occupantArray = new Object[rows][cols];
+		this.rows = rows;
+		this.cols = cols;
 		character = new Character();
 		character.putSelfInGrid(this, new Location(rows/2, cols/2));
-		obstacles = new ArrayList<Wall>();
+
 		exit = new Exit();
 		exit.putSelfInGrid(this, new Location(rows-5,cols-5));
-
+		occupantArray = new Object[rows][cols];
 		
-		for(int i = 0; i < cols; i++) {
-			//wall = new Wall();
-			obstacles.add(new Wall());
-			if(i < cols/2)
-				obstacles.get(i).putSelfInGrid(this, new Location(5,i));
-			if(i > cols/2) 
-				obstacles.get(i).putSelfInGrid(this, new Location(7,i));
-
-			
+		
+		
+	}
+	
+	public boolean[][] isWall()
+	{
+		isWall = new boolean[rows][cols]; 
+		for (int i = 0; i < rows; i++)
+		{
+			for (int j = 0; j < cols; j++)
+			{
+				isWall[i][j] = true;
+			}
 		}
+		//starting point
+		int r = (int)(Math.random()*rows+0.5);
+		int c = (int)(Math.random()*cols+0.5);
+		isWall[r][c] = false;
+		cr = r;
+		cc = c;
+		generateMaze(r,c);
+		return isWall;
+	}
+	
+	
+	public void generateMaze(int r, int c)
+	{
+		Integer[] directions = generateDirections(); 
+		for (int i = 0; i < 4; i++)
+		{
+			if (directions[i] == 0)
+			{
+				if (r - 2 <= 0)
+				{
+					break;
+				}
+				if (isWall[r-2][c])
+				{
+					isWall[r-2][c] = false;
+					isWall[r-1][c] = false;
+					generateMaze(r-2,c);
+				}
+			}
+			else if (directions[i] == 1)
+			{
+				if (c+2 >= cols-1)
+				{
+					break;
+				}
+				if (isWall[r][c+2])
+				{
+					isWall[r][c+2] = false;
+					isWall[r][c+1] = false;
+					generateMaze(r,c+2);
+				}
+			}
+			else if (directions[i]==2)
+			{
+				if (r+2 >= rows-1)
+				{
+					break;
+				}
+				if (isWall[r+2][c])
+				{
+					isWall[r+2][c] = false;
+					isWall[r+1][c] = false;
+					generateMaze(r+2,c);
+				}
+			}
+			else 
+			{
+				if (c-2 <= 0)
+				{
+					break;
+				}
+				if (isWall[r][c-2])
+				{
+					isWall[r][c-2] = false;
+					isWall[r][c-1] = false;
+					generateMaze(r,c-2);
+				}
+			}
+		}
+		
+		
+	}
+	
+	
+	public int getcc()
+	{
+		return cc;
+	}
+	
+	public int getcr()
+	{
+		return cr;
+	}
+	
+	public Integer[] generateDirections()
+	{
+		ArrayList<Integer> directions = new ArrayList<Integer>();
+		for (int i = 0; i < 4; i++)
+		{
+			directions.add(i);
+		}
+		Collections.shuffle(directions);
+		return directions.toArray(new Integer[4]);
 	}
 	
 	@Override
