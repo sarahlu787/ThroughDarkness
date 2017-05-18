@@ -16,6 +16,8 @@ import info.gridworld.grid.Location;
  */
 public class Character extends Actor
 {
+	
+	private Image image1;
 	private Image image;
 	
 	/**
