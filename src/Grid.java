@@ -37,16 +37,35 @@ public class Grid extends AbstractGrid<Actor>
 	public Grid(int rows, int cols) {
 		this.rows = rows;
 		this.cols = cols;
-		character = new Character();
-		character.putSelfInGrid(this, new Location(rows/2, cols/2));
+		occupantArray = new Object[rows][cols];
 
 		exit = new Exit();
 		exit.putSelfInGrid(this, new Location(rows-5,cols-5));
-		occupantArray = new Object[rows][cols];
 		
-		
+		generateActor();
 		
 	}
+	
+	
+	public void generateActor()
+	{
+		boolean[][] isWall = this.isWall();
+		for (int i = 0; i < isWall.length; i++)
+		{
+			for (int j = 0; j < isWall.length; j++)
+			{
+				if (isWall[i][j])
+				{
+					Wall w = new Wall();
+					w.putSelfInGrid(this, new Location(i,j));
+				}
+			}
+		}
+		character = new Character();
+		character.putSelfInGrid(this, new Location(cc, cr));
+	}
+	
+
 	
 	public boolean[][] isWall()
 	{
@@ -58,9 +77,10 @@ public class Grid extends AbstractGrid<Actor>
 				isWall[i][j] = true;
 			}
 		}
+		isWall[exit.getRow()][exit.getCol()] = false;
 		//starting point
-		int r = (int)(Math.random()*rows+0.5);
-		int c = (int)(Math.random()*cols+0.5);
+		int r = (int)(Math.random()*rows);
+		int c = (int)(Math.random()*cols);
 		isWall[r][c] = false;
 		cr = r;
 		cc = c;
@@ -173,7 +193,7 @@ public class Grid extends AbstractGrid<Actor>
 	 * @return the number of columns
 	 */
 	public int getNumCols() {
-		return occupantArray.length;
+		return cols;
 	}
 
 	@Override
@@ -182,7 +202,7 @@ public class Grid extends AbstractGrid<Actor>
 	 * @return the number of rows in the grid
 	 */
 	public int getNumRows() {
-		return occupantArray[0].length;
+		return rows;
 	}
 
 	@Override

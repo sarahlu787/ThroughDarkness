@@ -53,23 +53,6 @@ public class GridPanel extends JPanel implements KeyListener{
 	}
 
 	
-	public void generateActor()
-	{
-		for (int i = 0; i < grid.isWall().length; i++)
-		{
-			for (int j = 0; j < grid.isWall().length; j++)
-			{
-				if (grid.isWall()[i][j])
-				{
-					Wall w = new Wall();
-					w.putSelfInGrid(grid, new Location(i,j));
-				}
-			}
-		}
-		Character c = new Character();
-		c.putSelfInGrid(grid, new Location(grid.getcc(),grid.getcr()));
-	}
-	
 	@Override
 	
 	/**
@@ -79,8 +62,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	protected void paintComponent(Graphics g) {
 		//g.drawLine(10, 20, 30, 40);
 		g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
-		
-		generateActor();
+
 		
 		
 		for (int r = 0; r < grid.getNumRows(); r++) {
