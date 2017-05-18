@@ -28,6 +28,7 @@ public class Grid extends AbstractGrid<Actor>
 	private Object[][] occupantArray;
 	private int rows,cols;
 	private int cr, cc;
+	private int er,ec;
 	
 	/**
 	 * The constructor creates a 2D array for the grid and adds Actors to it.
@@ -39,8 +40,7 @@ public class Grid extends AbstractGrid<Actor>
 		this.cols = cols;
 		occupantArray = new Object[rows][cols];
 
-		exit = new Exit();
-		exit.putSelfInGrid(this, new Location(rows-5,cols-5));
+		
 		
 		generateActor();
 		
@@ -63,6 +63,8 @@ public class Grid extends AbstractGrid<Actor>
 		}
 		character = new Character();
 		character.putSelfInGrid(this, new Location(cc, cr));
+		exit = new Exit();
+		exit.putSelfInGrid(this, new Location(er,ec));
 	}
 	
 
@@ -77,15 +79,48 @@ public class Grid extends AbstractGrid<Actor>
 				isWall[i][j] = true;
 			}
 		}
-		isWall[exit.getRow()][exit.getCol()] = false;
+		
 		//starting point
 		int r = (int)(Math.random()*rows);
 		int c = (int)(Math.random()*cols);
 		isWall[r][c] = false;
 		cr = r;
 		cc = c;
+		
+		int r2 = 0,c2 = 0;
+		while((r2<=2 || r2>rows-2) || (c2<=2 || c2>cols-2))
+		{
+			r2 = (int)(Math.random()*rows);
+			c2 = (int)(Math.random()*cols);
+		}
+		//isWall[r2][c2] = false;
+		er = r2;
+		ec = c2;
 		generateMaze(r,c);
+		
+		
 		return isWall;
+	}
+	
+	
+	
+	
+	public void setExit(){
+		
+		boolean[][] wall = isWall();
+		ArrayList<Location> l = new ArrayList<Location>();
+		for (int i = 0; i <wall.length; i++)
+		{
+			for (int j = 0; j < wall[0].length; j++)
+			{
+				if (wall[i][j]==false)
+					l.add(new Location(i,j));
+			}
+		}
+		
+		int a = (int)(Math.random()*l.size());
+
+		exit.putSelfInGrid(this, l.get(a));
 	}
 	
 	

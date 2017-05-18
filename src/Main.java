@@ -24,7 +24,7 @@ public class Main extends JFrame{
 		col = 41;
 
 		
-		setBounds(100, 100, 700, 700);
+		setBounds(100, 100, 800, 700);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    cardPanel = new JPanel();
