@@ -1,5 +1,8 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 
 import ally.shapes.Line;
 
@@ -13,10 +16,21 @@ import ally.shapes.Line;
 public class Direction
 {
 	private double direction; 
+	private Image up, down, left, right, ul, ur, dl, dr;
 
 	public Direction() 
 	{
 		direction = 0;
+		
+		up = new ImageIcon("up.png").getImage();
+		down = new ImageIcon("down.png").getImage();
+		left = new ImageIcon("left.png").getImage();
+		right = new ImageIcon("right.png").getImage();
+		ul = new ImageIcon("upleft.png").getImage();
+		ur = new ImageIcon("upright.png").getImage();
+		dl = new ImageIcon("downleft.png").getImage();
+		dr = new ImageIcon("downright.png").getImage();
+		
 	}
 	
 	
@@ -42,14 +56,19 @@ public class Direction
 	/**
 	 * The paint method draws the direction on the screen.
 	 */
-	public void paint(Graphics g, double degree, int rows)
+	public void paint(Graphics g, double degree)
 	{
 		int size = GridPanel.GRID_SIZE;
-		int height = rows*size;
 		g.setColor(Color.BLACK);
 		double x2 = Math.sin(degree)*size*3;
 		double y2 = Math.cos(degree)*size*3;
 		
+		double degrees = degree/Math.PI*180.0;
+		
+	
+		
+		
+
 		
 		g.setColor(Color.white);
 		g.fillRect(650, 0, 150, 150);

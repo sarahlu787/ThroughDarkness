@@ -27,6 +27,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	private Direction direction = new Direction();
 	private JButton button1;
 	private JButton button2;
+	private JButton button3;
 	
 	/**
 	 * The constructor sets the grid.
@@ -48,9 +49,41 @@ public class GridPanel extends JPanel implements KeyListener{
 			
 		});
 		add(button1);
+	
+		button2 = new JButton("RESET CHARACTER");
+		button2.setBounds(w.getWidth()/2-100,w.getHeight()-40,200,20);
+
+		button2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				grid.getCharacter().removeSelfFromGrid();
+				Character c = new Character();
+				c.putSelfInGrid(grid,new Location(grid.getcr(),grid.getcc()));
+				
+			}
+			
+		});
+		add(button2);
 		
 
+
+		button3 = new JButton("RESTART");
+		button3.setBounds(w.getWidth()/2-50,w.getHeight()-20,100,20);
+
+		button3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					
+				
+			}
+			
+		});
+		add(button3);
+		
+		
 	}
+	
+
 
 	
 	@Override
@@ -63,8 +96,6 @@ public class GridPanel extends JPanel implements KeyListener{
 		//g.drawLine(10, 20, 30, 40);
 		g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 
-		
-		
 		for (int r = 0; r < grid.getNumRows(); r++) {
 			for (int c = 0; c < grid.getNumCols(); c++) {
 				Actor actor = grid.get(new Location(r, c));
@@ -81,10 +112,8 @@ public class GridPanel extends JPanel implements KeyListener{
 		int rows = grid.getNumRows();
 		//int cols = grid.getNumCols();
 		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
-		direction.paint(g, degree, rows);
-		
-		
-		
+		direction.paint(g, degree);
+
 		
 	}
 	
@@ -92,11 +121,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	/**
 	 * The getGrid Size method returns the size of the grid.
 	 * @return the size of the grid as an integer
-	 */
-	public int getGridSize() {
-		return GRID_SIZE;
-	}
-	
+	 */	
 
 
 	@Override

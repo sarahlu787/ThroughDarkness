@@ -29,6 +29,7 @@ public class Grid extends AbstractGrid<Actor>
 	private int rows,cols;
 	private int cr, cc;
 	private int er,ec;
+	private boolean isTrapped;
 	
 	/**
 	 * The constructor creates a 2D array for the grid and adds Actors to it.
@@ -39,10 +40,16 @@ public class Grid extends AbstractGrid<Actor>
 		this.rows = rows;
 		this.cols = cols;
 		occupantArray = new Object[rows][cols];
-
+		isTrapped = false;
 		
 		
 		generateActor();
+		
+		if (isTrapped){
+			generateActor();
+		}
+	
+		
 		
 	}
 	
@@ -62,7 +69,22 @@ public class Grid extends AbstractGrid<Actor>
 			}
 		}
 		character = new Character();
-		character.putSelfInGrid(this, new Location(cc, cr));
+		character.putSelfInGrid(this, new Location(cr, cc));
+		
+		
+		
+		
+		
+		// for some reason sometimes out of bounds
+		
+		
+		
+		
+		if (cr == 0 || cc == 0 || cr == rows || cc == cols) {
+			if (isWall[cr][cc+1] && isWall[cr][cc-1] && isWall[cr-1][cc] && isWall[cr+1][cc])
+				isTrapped = true;
+		}
+		
 		exit = new Exit();
 		exit.putSelfInGrid(this, new Location(er,ec));
 	}
@@ -88,7 +110,7 @@ public class Grid extends AbstractGrid<Actor>
 		cc = c;
 		
 		int r2 = 0,c2 = 0;
-		while((r2<=2 || r2>rows-2) || (c2<=2 || c2>cols-2))
+		while((r2<=2 || r2>rows-2) || (c2<=2 || c2>cols-2) || Math.abs(cr-r2) < 10 || Math.abs(cc-c2) < 10)
 		{
 			r2 = (int)(Math.random()*rows);
 			c2 = (int)(Math.random()*cols);
@@ -292,6 +314,7 @@ public class Grid extends AbstractGrid<Actor>
 	public Character getCharacter() {
 		return character;
 	}
+	
 	/**
 	 * The getExit method returns the Exit in the grid.
 	 * @return the Exit from the grid
