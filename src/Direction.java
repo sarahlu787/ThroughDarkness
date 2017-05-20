@@ -4,7 +4,6 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import ally.shapes.Line;
 
 /**
  * The Direction class displays the direction as an arrow from the character to the exit.

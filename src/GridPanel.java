@@ -1,11 +1,10 @@
-import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -114,8 +113,6 @@ public class GridPanel extends JPanel implements KeyListener{
 			
 		}
 		
-		int rows = grid.getNumRows();
-		//int cols = grid.getNumCols();
 		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
 		direction.paint(g, degree);
 

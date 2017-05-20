@@ -1,4 +1,4 @@
-import java.awt.Color;
+
 import java.awt.Graphics;
 
 import info.gridworld.grid.Location;

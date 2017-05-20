@@ -5,9 +5,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 import info.gridworld.grid.Location;
-import java.awt.Graphics;
 
-import info.gridworld.grid.Location;
 
 /**
  * The Exit class defines and draws the Exit of the maze.
