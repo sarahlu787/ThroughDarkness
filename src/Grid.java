@@ -68,6 +68,8 @@ public class Grid extends AbstractGrid<Actor>
 				}
 			}
 		}
+		exit = new Exit();
+		exit.putSelfInGrid(this, new Location(er,ec));
 		character = new Character();
 		character.putSelfInGrid(this, new Location(cr, cc));
 		
@@ -85,8 +87,8 @@ public class Grid extends AbstractGrid<Actor>
 				isTrapped = true;
 		}
 		
-		exit = new Exit();
-		exit.putSelfInGrid(this, new Location(er,ec));
+		/*exit = new Exit();
+		exit.putSelfInGrid(this, new Location(er,ec));*/
 	}
 	
 

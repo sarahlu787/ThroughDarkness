@@ -77,6 +77,8 @@ public class Direction
 		g.drawLine(700,75, 700+(int)x2, 75+(int)y2);
 		g.fillOval(700+(int)x2-10, 75+(int)y2-10, 20,20);
 		
+		//g.setColor(null);
+		
 
 		
 		

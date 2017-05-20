@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -96,10 +97,18 @@ public class GridPanel extends JPanel implements KeyListener{
 	protected void paintComponent(Graphics g) {
 		//g.drawLine(10, 20, 30, 40);
 		
-		g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
+		//g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 
-		g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
-
+		//g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE);
+		
+		
+		
+		
+		
+		
+		
 		for (int r = 0; r < grid.getNumRows(); r++) {
 			for (int c = 0; c < grid.getNumCols(); c++) {
 				Actor actor = grid.get(new Location(r, c));
@@ -112,6 +121,17 @@ public class GridPanel extends JPanel implements KeyListener{
 			}
 			
 		}
+		
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(0,0, grid.getCharacter().getCol()*GRID_SIZE-64, grid.getCharacter().getRow()*GRID_SIZE-64);
+		g.fillRect(0, grid.getCharacter().getRow()*GRID_SIZE-64, grid.getCharacter().getCol()*GRID_SIZE-64, grid.getNumRows()*GRID_SIZE-(grid.getCharacter().getRow()*GRID_SIZE-64));
+		g.fillRect(grid.getCharacter().getCol()*GRID_SIZE-64,grid.getCharacter().getRow()*GRID_SIZE+GRID_SIZE+64,grid.getNumCols()*GRID_SIZE-(grid.getCharacter().getCol()*GRID_SIZE-64),grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(grid.getCharacter().getRow()*GRID_SIZE-64));
+		g.fillRect(grid.getCharacter().getCol()*GRID_SIZE-64, 0, grid.getNumCols()*GRID_SIZE-(grid.getCharacter().getCol()*GRID_SIZE-64),grid.getCharacter().getRow()*GRID_SIZE-64);
+		g.fillRect(grid.getCharacter().getCol()*GRID_SIZE+64+GRID_SIZE, grid.getCharacter().getRow()*GRID_SIZE-64,grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(grid.getCharacter().getCol()*GRID_SIZE-64),128+GRID_SIZE);
+		
+		//g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
+		//grid.getCharacter().paint(g, grid.getcr(), grid.getcc());
 		
 		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
 		direction.paint(g, degree);

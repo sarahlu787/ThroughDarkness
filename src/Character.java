@@ -113,10 +113,11 @@ public class Character extends Actor
 	 * @param y the y-coordinate of the Character
 	 */
 	public void paint(Graphics g, int x, int y) {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.black);
+		g.drawOval(x-64, y-64, 144, 144);
 		//g.fillOval(x-32, y-32, 80, 80);
-		g.fillArc(x-32, y-32, 80, 80, 0, 360);
-	//	g.drawArc(x-32, y-32, 80, 80, 0, 360);
+		//g.fillArc(x-32, y-32, 80, 80, 0, 360);
+		//g.drawArc(x-32, y-32, 80, 80, 0, 360);
 		
 		g.drawImage(image,x,y,GridPanel.GRID_SIZE,GridPanel.GRID_SIZE,null);
 		
