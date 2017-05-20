@@ -6,11 +6,8 @@ import javax.swing.JPanel;
 
 
 public class Main extends JFrame{
-	
-	private int row;
-	private int col;
-	
 	JPanel cardPanel;
+	GridPanel gridPanel;
 	
 	/**
 	 * The constructor creates the HomeScreen, Grid, and adds them o the window. 
@@ -20,10 +17,6 @@ public class Main extends JFrame{
 	
 	public Main(String title) {
 		super(title);
-		row = 41;
-		col = 41;
-
-		
 		setBounds(100, 100, 800, 700);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
@@ -32,9 +25,7 @@ public class Main extends JFrame{
 	    cardPanel.setLayout(cl);
 	    
 		HomeScreen panel1 = new HomeScreen(this);
-		Grid grid = new Grid(row, col);
-	    GridPanel panel2 = new GridPanel(grid,this);
-	    this.addKeyListener(panel2);
+	    gridPanel = new GridPanel(this);
 	    InstructionScreen panel3 = new InstructionScreen(this);
 		//JLabel label1 = new JLabel("   11233 ");
 		//panel3.add(label1);
@@ -42,7 +33,7 @@ public class Main extends JFrame{
 	    //addKeyListener(panel2.getKeyHandler());
 	
 	    cardPanel.add(panel1,"1");
-	    cardPanel.add(panel2,"2");
+	    cardPanel.add(gridPanel, "gridPanel");
 	    cardPanel.add(panel3,"3");
 	    
 	    add(cardPanel);
@@ -52,7 +43,7 @@ public class Main extends JFrame{
 
 	/**
 	 * The main method creates a new Main object called ThroughDarkness.
-	 * @param args the parameter for the main mehtod
+	 * @param args the parameter for the main method
 	 */
 	public static void main(String[] args)
 	{
@@ -65,6 +56,10 @@ public class Main extends JFrame{
 	 */
 	public void changePanel(String name) {
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,name);
-		requestFocus();
+	}
+	
+	public void startGame() {
+		changePanel("gridPanel");
+		gridPanel.startGame();
 	}
 }

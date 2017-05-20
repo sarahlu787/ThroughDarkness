@@ -39,7 +39,7 @@ public class HomeScreen extends JPanel {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				w.changePanel("2");
+				w.startGame();
 			}
 			
 		});

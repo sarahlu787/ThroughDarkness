@@ -323,6 +323,12 @@ public class Grid extends AbstractGrid<Actor>
 	{
 		return exit;
 	}
+	
+	public void resetCharacter() {
+		getCharacter().removeSelfFromGrid();
+		character = new Character();
+		character.putSelfInGrid(this,new Location(cr,cc));
+	}
 
 	 
 }

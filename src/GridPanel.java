@@ -33,11 +33,14 @@ public class GridPanel extends JPanel implements KeyListener{
 	 * The constructor sets the grid.
 	 * @param grid the grid object from Main
 	 */
-	public GridPanel(Grid grid, Main w) {
-		this.grid = grid;
+	public GridPanel(Main w) {
 		this.w = w;
 		setLayout(null);
 		
+		setFocusable(true);
+		requestFocus();
+	    addKeyListener(this);
+
 		button1 = new JButton("BACK");
 		button1.setBounds(w.getWidth()/2-50,w.getHeight()-60,100,20);
 
@@ -50,16 +53,18 @@ public class GridPanel extends JPanel implements KeyListener{
 		});
 		add(button1);
 	
+		
+		
 		button2 = new JButton("RESET CHARACTER");
 		button2.setBounds(w.getWidth()/2-100,w.getHeight()-40,200,20);
 
 		button2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				grid.getCharacter().removeSelfFromGrid();
-				Character c = new Character();
-				c.putSelfInGrid(grid,new Location(grid.getcr(),grid.getcc()));
-				
+				System.out.println("actionPerformed" + e);
+				grid.resetCharacter();
+				GridPanel.this.requestFocus();
+				repaint();
 			}
 			
 		});
@@ -79,12 +84,7 @@ public class GridPanel extends JPanel implements KeyListener{
 			
 		});
 		add(button3);
-		
-		
 	}
-	
-
-
 	
 	@Override
 	
@@ -156,7 +156,12 @@ public class GridPanel extends JPanel implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+	public void startGame() {
+		requestFocus();
+		int row = 41;
+		int col = 41;
+		grid = new Grid(row, col);
+	}
 	
 } 
