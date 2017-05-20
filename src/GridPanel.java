@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	public static final int GRID_SIZE = 16;
 	private Grid grid;
 	private Image background = new ImageIcon("whiteBackground.jpg").getImage();
+	private Image blackBG = new ImageIcon("black.jpg").getImage();
 	private Direction direction = new Direction();
 	private JButton button1;
 	private JButton button2;
@@ -94,6 +96,9 @@ public class GridPanel extends JPanel implements KeyListener{
 	 */
 	protected void paintComponent(Graphics g) {
 		//g.drawLine(10, 20, 30, 40);
+		
+		g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
+
 		g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 
 		for (int r = 0; r < grid.getNumRows(); r++) {
