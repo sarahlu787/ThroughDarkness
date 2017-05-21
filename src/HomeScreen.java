@@ -21,7 +21,7 @@ public class HomeScreen extends JPanel {
 
 	Main w;
 	private Image image;
-	private JButton button,button1;
+	private JButton button,button1,button2;
 	private Label title;
 	
 	/**
@@ -57,6 +57,19 @@ public class HomeScreen extends JPanel {
 			
 		});
 		add(button1);
+		
+/*		button2 = new JButton("Success");
+		button2.setBounds(w.getWidth()/2-80,w.getHeight()/2-120,160,20);
+		button2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				w.changePanel("success");
+				
+			}
+			
+		});
+		add(button2);*/
 		
 		
 	}
