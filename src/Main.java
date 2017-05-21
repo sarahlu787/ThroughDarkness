@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Main extends JFrame{
 	JPanel cardPanel;
 	GridPanel gridPanel;
-	EasySound2 bgm = new EasySound2("jump.wav");
+	Sound bgm = new Sound("jump.wav");
 	/**
 	 * The constructor creates the HomeScreen, Grid, and adds them o the window. 
 	 * It also sets the number of rows and columns in the grid.
