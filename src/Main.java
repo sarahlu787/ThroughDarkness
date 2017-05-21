@@ -29,6 +29,7 @@ public class Main extends JFrame{
 		HomeScreen panel1 = new HomeScreen(this);
 	    gridPanel = new GridPanel(this);
 	    InstructionScreen panel3 = new InstructionScreen(this);
+	    SuccessScreen panel4 = new SuccessScreen(this);
 		//JLabel label1 = new JLabel("   11233 ");
 		//panel3.add(label1);
 	    
@@ -37,6 +38,7 @@ public class Main extends JFrame{
 	    cardPanel.add(panel1,"1");
 	    cardPanel.add(gridPanel, "gridPanel");
 	    cardPanel.add(panel3,"3");
+	    cardPanel.add(panel4, "success");
 	    
 	    add(cardPanel);
 	

@@ -74,19 +74,6 @@ public class GridPanel extends JPanel implements KeyListener{
 		add(button2);
 		
 
-
-		button3 = new JButton("RESTART");
-		button3.setBounds(w.getWidth()/2-50,w.getHeight()-20,100,20);
-
-		button3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-					
-				
-			}
-			
-		});
-		add(button3);
 	}
 	
 	@Override
@@ -145,7 +132,16 @@ public class GridPanel extends JPanel implements KeyListener{
 		
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setStroke(new BasicStroke(100));
-		g2d.drawOval(x-114, y-114, 244, 244);
+		g2d.drawOval(x-90, y-90, 196, 196);
+		
+		
+		int col = grid.getCharacter().getCol();
+		int row = grid.getCharacter().getRow();
+		int eCol = grid.getExit().getCol();
+		int eRow = grid.getExit().getRow();
+		if (row == eRow-1 && col == eCol || row == eRow+1 && col == eCol || row == eRow && col == eCol-1 || row == eRow && col == eCol+1)
+			w.changePanel("success");
+		
 		
 	}
 	
@@ -177,6 +173,8 @@ public class GridPanel extends JPanel implements KeyListener{
 			c.moveDown();
 		} else if(e.getKeyCode() == KeyEvent.VK_UP){
 			c.moveUp();
+		} else if(e.getKeyCode() == KeyEvent.VK_R){
+			w.startGame();
 		}
 		
 		repaint();

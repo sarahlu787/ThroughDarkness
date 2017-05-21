@@ -60,6 +60,7 @@ public class InstructionScreen extends JPanel implements ActionListener{
 		g.drawString("Left Arrow Key: moves the character left", w.getWidth()/10, w.getHeight()/5);
 		g.drawString("Up Arrow Key: moves the character up",w.getWidth()/10, w.getHeight()/10*3);
 		g.drawString("Down Arrow Key: moves the character down", w.getWidth()/10, w.getHeight()/5*2);
+		g.drawString("R: start a new game", w.getWidth()/10, w.getHeight()/2);
 		button.setBounds(w.getWidth()/2-50,w.getHeight()-100,100,20);
 	}
 	
