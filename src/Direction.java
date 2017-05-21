@@ -1,4 +1,3 @@
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -71,8 +70,8 @@ public class Direction
 		
 
 		
-		//g.setColor(Color.white);
-		//g.fillRect(650, 0, 150, 150);
+		g.setColor(Color.white);
+		g.fillRect(650, 0, 150, 150);
 		
 		g.setColor(Color.BLACK);
 		
@@ -81,17 +80,15 @@ public class Direction
 		
 
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.setStroke(new BasicStroke(5));
+
+		g2d.translate(700, 75);
+		g2d.rotate(theta);
+
+		g2d.setColor(Color.RED);
+		g2d.drawLine(0, 0, 100, 0);
 		
-		g2d.translate(735, 75);
-		g2d.rotate(2*Math.PI-theta);
-		
-		g2d.drawLine(-10,55,0,60);
-		g2d.drawLine(0, 0, 0, 60);
-		g2d.drawLine(10, 55, 0, 60);
-		
-		g2d.rotate(-2*Math.PI+theta);
-		g2d.translate(-735, -75);
+		g2d.rotate(-theta);
+		g2d.translate(-700, -75);
 
 		
 		
