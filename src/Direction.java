@@ -70,8 +70,8 @@ public class Direction
 		
 
 		
-		g.setColor(Color.white);
-		g.fillRect(650, 0, 150, 150);
+		//g.setColor(Color.white);
+		//g.fillRect(650, 0, 150, 150);
 		
 		g.setColor(Color.BLACK);
 		

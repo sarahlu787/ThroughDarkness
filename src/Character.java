@@ -114,7 +114,7 @@ public class Character extends Actor
 	 */
 	public void paint(Graphics g, int x, int y) {
 		g.setColor(Color.black);
-		g.drawOval(x-64, y-64, 144, 144);
+		g.drawOval(x-40, y-40, 96, 96);
 		//g.fillOval(x-32, y-32, 80, 80);
 		//g.fillArc(x-32, y-32, 80, 80, 0, 360);
 		//g.drawArc(x-32, y-32, 80, 80, 0, 360);

@@ -102,8 +102,8 @@ public class GridPanel extends JPanel implements KeyListener{
 
 		//g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE);
-		
+		//g.fillRect(0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE);
+		g.fillRect(0,0,w.getWidth(),w.getHeight());
 		
 		
 		
@@ -130,11 +130,11 @@ public class GridPanel extends JPanel implements KeyListener{
 
 		
 		g.setColor(Color.BLACK);
-		g.fillRect(0,0, x-64, y-64);
-		g.fillRect(0, y-64, x-64, grid.getNumRows()*GRID_SIZE-(y-64));
-		g.fillRect(x-64,y+GRID_SIZE+64,grid.getNumCols()*GRID_SIZE-(x-64),grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(y-64));
-		g.fillRect(x-64, 0, grid.getNumCols()*GRID_SIZE-(x-64),y-64);
-		g.fillRect(x+64+GRID_SIZE, y-64,grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(x-64),128+GRID_SIZE);
+		g.fillRect(0,0, x-40, y-40);
+		g.fillRect(0, y-40, x-40, grid.getNumRows()*GRID_SIZE-(y-40));
+		g.fillRect(x-40,y+GRID_SIZE+40,grid.getNumCols()*GRID_SIZE-(x-40),grid.getNumRows()*GRID_SIZE-80-GRID_SIZE-(y-40));
+		g.fillRect(x-40, 0, grid.getNumCols()*GRID_SIZE-(x-40),y-40);
+		g.fillRect(x+40+GRID_SIZE, y-40,grid.getNumRows()*GRID_SIZE-80-GRID_SIZE-(x-40),80+GRID_SIZE);
 		
 		//g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		//grid.getCharacter().paint(g, grid.getcr(), grid.getcc());
