@@ -65,7 +65,6 @@ public class GridPanel extends JPanel implements KeyListener{
 		button2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("actionPerformed" + e);
 				grid.resetCharacter();
 				GridPanel.this.requestFocus();
 				repaint();
