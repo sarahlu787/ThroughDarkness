@@ -82,7 +82,7 @@ public class Grid extends AbstractGrid<Actor>
 		
 		
 		
-		if (cr == 0 || cc == 0 || cr == rows || cc == cols) {
+		if (cr != 0 && cc != 0 && cr != rows-1 && cc != cols-1) {
 			if (isWall[cr][cc+1] && isWall[cr][cc-1] && isWall[cr-1][cc] && isWall[cr+1][cc])
 				isTrapped = true;
 		}
