@@ -188,6 +188,10 @@ public class GridPanel extends JPanel implements KeyListener{
 		
 	}
 
+	
+	/**
+	 * Creates a new grid and sets its size.
+	 */
 	public void startGame() {
 		requestFocus();
 		int row = 41;

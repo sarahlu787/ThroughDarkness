@@ -49,7 +49,7 @@ public class SuccessScreen extends JPanel {
 	}
 	
 	/**
-	 * The paintComponent method draws everything on the home screen 
+	 * The paintComponent method draws everything on the success screen 
 	 * @param g the Graphics component
 	 */
 	protected void paintComponent(Graphics g) {

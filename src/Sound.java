@@ -23,7 +23,7 @@ public class Sound implements Runnable
     }
     catch (Exception ex)
     {
-      System.out.println("*** Cannot find " + fileName + " ***");
+      System.out.println("*** Cannot find " + fileName + " ***" + ex);
       System.exit(1);
     }
 

@@ -19,10 +19,15 @@ public class Direction
 	private double direction; 
 	private Image up, down, left, right, ul, ur, dl, dr;
 
+	
+	/**
+	 * The constructor sets the initial direction to zero.
+	 */
 	public Direction() 
 	{
 		direction = 0;
 		
+		/*
 		up = new ImageIcon("up.png").getImage();
 		down = new ImageIcon("down.png").getImage();
 		left = new ImageIcon("left.png").getImage();
@@ -31,6 +36,7 @@ public class Direction
 		ur = new ImageIcon("upright.png").getImage();
 		dl = new ImageIcon("downleft.png").getImage();
 		dr = new ImageIcon("downright.png").getImage();
+		*/
 		
 	}
 	
@@ -65,14 +71,7 @@ public class Direction
 		double y2 = Math.cos(theta)*size*3;
 		
 		
-		
-	
-		
-		
-
-		
 		g.setColor(Color.BLACK);
-		
 		
 
 		Graphics2D g2d = (Graphics2D) g;
