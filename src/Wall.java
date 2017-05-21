@@ -20,6 +20,7 @@ public class Wall extends Actor
 	 */
 	public Wall() 
 	{
+		
 		wall = new ImageIcon("black.jpg").getImage();
 	}
 	
