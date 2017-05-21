@@ -103,9 +103,6 @@ public class Character extends Actor
 	}
 	
 
-
-	
-	@Override
 	/**
 	 * The paint method draws the Character
 	 * @param g the Graphics component

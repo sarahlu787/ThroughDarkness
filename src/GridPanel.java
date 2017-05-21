@@ -146,12 +146,6 @@ public class GridPanel extends JPanel implements KeyListener{
 		
 	}
 	
-	
-	/**
-	 * The getGrid Size method returns the size of the grid.
-	 * @return the size of the grid as an integer
-	 */	
-
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -159,9 +153,8 @@ public class GridPanel extends JPanel implements KeyListener{
 		
 	}
 
-	@Override
 	/**
-	 * The keyPressed method defines the Character's movement when certain keys are pressed.
+	 * The keyPressed method defines the Character's movement when certain keys are pressed as well as the keyword to restart the game.
 	 */
 	public void keyPressed(KeyEvent e) {
 		Character c = grid.getCharacter();
@@ -187,6 +180,7 @@ public class GridPanel extends JPanel implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+
 
 	
 	/**

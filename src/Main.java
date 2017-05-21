@@ -13,7 +13,6 @@ public class Main extends JFrame{
 	 * It also sets the number of rows and columns in the grid.
 	 * @param title the name of the Main object
 	 */
-	
 	public Main(String title) {
 		
 		super(title);

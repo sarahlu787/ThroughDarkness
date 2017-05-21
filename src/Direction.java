@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 public class Direction
 {
 	private double direction; 
-	private Image up, down, left, right, ul, ur, dl, dr;
+	//private Image up, down, left, right, ul, ur, dl, dr;
 
 	
 	/**
@@ -70,7 +70,7 @@ public class Direction
 		double x2 = Math.sin(theta)*size*3;
 		double y2 = Math.cos(theta)*size*3;
 		
-		
+
 		g.setColor(Color.BLACK);
 		
 
