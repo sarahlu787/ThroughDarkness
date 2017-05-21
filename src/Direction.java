@@ -20,7 +20,7 @@ public class Direction
 
 	
 	/**
-	 * The constructor sets the initia direction to zero.
+	 * The constructor sets the initial direction to zero.
 	 */
 	public Direction() 
 	{

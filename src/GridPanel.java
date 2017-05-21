@@ -174,6 +174,7 @@ public class GridPanel extends JPanel implements KeyListener{
 		repaint();
 		
 	}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {
