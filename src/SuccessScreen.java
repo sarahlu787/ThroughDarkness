@@ -54,8 +54,8 @@ public class SuccessScreen extends JPanel {
 	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(image, 0, 0, w.getWidth(), w.getHeight(), this);
-		button.setBounds(w.getWidth()/2-50,w.getHeight()/2-60,100,20);
+		g.drawImage(image, 0, w.getHeight()/3, w.getWidth(), w.getHeight()/3, this);
+		button.setBounds(w.getWidth()/2-50,w.getHeight()-w.getHeight()/10,100,20);
 	}
 	
 }
