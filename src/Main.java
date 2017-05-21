@@ -13,7 +13,6 @@ public class Main extends JFrame{
 	 * It also sets the number of rows and columns in the grid.
 	 * @param title the name of the Main object
 	 */
-	
 	public Main(String title) {
 		
 		super(title);
@@ -62,6 +61,9 @@ public class Main extends JFrame{
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,name);
 	}
 	
+	/**
+	 * The startGame method starts a new game.
+	 */
 	public void startGame() {
 		changePanel("gridPanel");
 		gridPanel.startGame();

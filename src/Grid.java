@@ -53,7 +53,10 @@ public class Grid extends AbstractGrid<Actor>
 		
 	}
 	
-	
+	/**
+	 * The generateActor method sets the initial locations of the Character and the Exit.
+	 * It also initializes a 2D array of booleans which is used to randomly generate the maze.
+	 */
 	public void generateActor()
 	{
 		boolean[][] isWall = this.isWall();
@@ -74,12 +77,7 @@ public class Grid extends AbstractGrid<Actor>
 		character.putSelfInGrid(this, new Location(cr, cc));
 		
 		
-		
-		
-		
 		// for some reason sometimes out of bounds
-		
-		
 		
 		
 		if (cr != 0 && cc != 0 && cr != rows-1 && cc != cols-1) {
@@ -92,7 +90,10 @@ public class Grid extends AbstractGrid<Actor>
 	}
 	
 
-	
+	/**
+	 * The isWall method creates a 2D array of booleans which is used to randomly generate the maze.
+	 * @return the 2D array of booleans for walls
+	 */
 	public boolean[][] isWall()
 	{
 		isWall = new boolean[rows][cols]; 
@@ -128,7 +129,9 @@ public class Grid extends AbstractGrid<Actor>
 	
 	
 	
-	
+	/**
+	 * The setExit method sets the Exit to a random location in the maze.
+	 */
 	public void setExit(){
 		
 		boolean[][] wall = isWall();
@@ -147,7 +150,11 @@ public class Grid extends AbstractGrid<Actor>
 		exit.putSelfInGrid(this, l.get(a));
 	}
 	
-	
+	/**
+	 * The generateMaze method randomly generates the maze.
+	 * @param r the number of rows in the maze
+	 * @param c the number of columns in the maze
+	 */
 	public void generateMaze(int r, int c)
 	{
 		Integer[] directions = generateDirections(); 
@@ -210,17 +217,28 @@ public class Grid extends AbstractGrid<Actor>
 		
 	}
 	
-	
+	/**
+	 * The getcc method returns the initial x-coordinate of the Character.
+	 * @return the initial x-coordinate of the Character
+	 */
 	public int getcc()
 	{
 		return cc;
 	}
 	
+	
+	/**
+	 * The getcr method returns the initial y-coordinate of the Character.
+	 * @return the initial y-coordinate of the Character
+	 */
 	public int getcr()
 	{
 		return cr;
 	}
-	
+	/**
+	 * The generateDirection method randomly generates an integer array list containing numbers 0-3.
+	 * @return the randomly generated integer array list
+	 */
 	public Integer[] generateDirections()
 	{
 		ArrayList<Integer> directions = new ArrayList<Integer>();
@@ -232,7 +250,6 @@ public class Grid extends AbstractGrid<Actor>
 		return directions.toArray(new Integer[4]);
 	}
 	
-	@Override
 	/**
 	 * The get method gets the Actor at a given location.
 	 * @param loc the location in the grid
@@ -246,7 +263,6 @@ public class Grid extends AbstractGrid<Actor>
         return (Actor) occupantArray[loc.getRow()][loc.getCol()]; // unavoidable warning
     }
 
-	@Override
 	/**
 	 * The getNumCols returns the number of columns in the grid.
 	 * @return the number of columns
@@ -255,7 +271,6 @@ public class Grid extends AbstractGrid<Actor>
 		return cols;
 	}
 
-	@Override
 	/**
 	 * The getNumRows returns the number of rows in the grid.
 	 * @return the number of rows in the grid
@@ -264,13 +279,11 @@ public class Grid extends AbstractGrid<Actor>
 		return rows;
 	}
 
-	@Override
 	public ArrayList<Location> getOccupiedLocations() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	/**
 	 * The isValid method determines if a given location is valid.
 	 * @param loc the location in the grid
@@ -281,7 +294,11 @@ public class Grid extends AbstractGrid<Actor>
 	             && 0 <= loc.getCol() && loc.getCol() < getNumCols();
 	}
 
-	@Override
+	/**
+	 * The put method puts an Actor object in the given location
+	 * @param loc the location of that the actor should be put in
+	 * @param obj the Actor
+	 */
     public Actor put(Location loc, Actor obj)
     {
         if (!isValid(loc))
@@ -296,7 +313,10 @@ public class Grid extends AbstractGrid<Actor>
         return oldOccupant;
     }
 
-	@Override
+	/**
+	 * The remove method removes the Actor at the given location.
+	 * @param loc the location of the Actor to be removed
+	 */
     public Actor remove(Location loc)
     {
         if (!isValid(loc))
@@ -326,6 +346,9 @@ public class Grid extends AbstractGrid<Actor>
 		return exit;
 	}
 	
+	/**
+	 * The resetCharacter method resets the location of the Character.
+	 */
 	public void resetCharacter() {
 		getCharacter().removeSelfFromGrid();
 		character = new Character();

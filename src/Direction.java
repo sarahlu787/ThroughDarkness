@@ -16,20 +16,24 @@ import javax.swing.ImageIcon;
 public class Direction
 {
 	private double direction; 
-	private Image up, down, left, right, ul, ur, dl, dr;
+	//private Image up, down, left, right, ul, ur, dl, dr;
 
+	
+	/**
+	 * The constructor sets the initia direction to zero.
+	 */
 	public Direction() 
 	{
 		direction = 0;
 		
-		up = new ImageIcon("up.png").getImage();
+		/*up = new ImageIcon("up.png").getImage();
 		down = new ImageIcon("down.png").getImage();
 		left = new ImageIcon("left.png").getImage();
 		right = new ImageIcon("right.png").getImage();
 		ul = new ImageIcon("upleft.png").getImage();
 		ur = new ImageIcon("upright.png").getImage();
 		dl = new ImageIcon("downleft.png").getImage();
-		dr = new ImageIcon("downright.png").getImage();
+		dr = new ImageIcon("downright.png").getImage();*/
 		
 	}
 	
@@ -63,12 +67,6 @@ public class Direction
 		double x2 = Math.sin(theta)*size*3;
 		double y2 = Math.cos(theta)*size*3;
 		
-		
-		
-	
-		
-		
-
 		
 		//g.setColor(Color.white);
 		//g.fillRect(650, 0, 150, 150);
