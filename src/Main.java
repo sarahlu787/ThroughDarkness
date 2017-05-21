@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Main extends JFrame{
 	JPanel cardPanel;
 	GridPanel gridPanel;
-	Sound bgm = new Sound("jump.wav");
+	Sound bgm = new Sound("Misty-Bog_Looping.wav");
 	/**
 	 * The constructor creates the HomeScreen, Grid, and adds them o the window. 
 	 * It also sets the number of rows and columns in the grid.
@@ -61,8 +61,9 @@ public class Main extends JFrame{
 		((CardLayout)cardPanel.getLayout()).show(cardPanel,name);
 	}
 	
+	
 	/**
-	 * The startGame method starts a new game.
+	 * Starts a new game.
 	 */
 	public void startGame() {
 		changePanel("gridPanel");

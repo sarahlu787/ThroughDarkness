@@ -182,8 +182,10 @@ public class GridPanel extends JPanel implements KeyListener{
 		
 	}
 
+
+	
 	/**
-	 * the startGame method starts a new game.
+	 * Creates a new grid and sets its size.
 	 */
 	public void startGame() {
 		requestFocus();

@@ -1,3 +1,4 @@
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -26,14 +27,16 @@ public class Direction
 	{
 		direction = 0;
 		
-		/*up = new ImageIcon("up.png").getImage();
+		/*
+		up = new ImageIcon("up.png").getImage();
 		down = new ImageIcon("down.png").getImage();
 		left = new ImageIcon("left.png").getImage();
 		right = new ImageIcon("right.png").getImage();
 		ul = new ImageIcon("upleft.png").getImage();
 		ur = new ImageIcon("upright.png").getImage();
 		dl = new ImageIcon("downleft.png").getImage();
-		dr = new ImageIcon("downright.png").getImage();*/
+		dr = new ImageIcon("downright.png").getImage();
+		*/
 		
 	}
 	
@@ -67,25 +70,22 @@ public class Direction
 		double x2 = Math.sin(theta)*size*3;
 		double y2 = Math.cos(theta)*size*3;
 		
-		
-		//g.setColor(Color.white);
-		//g.fillRect(650, 0, 150, 150);
-		
+
 		g.setColor(Color.BLACK);
-		
-		g.drawLine(700,75, 700+(int)x2, 75+(int)y2);
-		g.fillOval(700+(int)x2-10, 75+(int)y2-10, 20,20);
 		
 
 		Graphics2D g2d = (Graphics2D) g;
-
-		g2d.translate(700, 75);
-		g2d.rotate(theta);
+		g2d.setStroke(new BasicStroke(5));
 		
-		g2d.drawLine(0, 0, 100, 0);
+		g2d.translate(735, 75);
+		g2d.rotate(2*Math.PI-theta);
 		
-		g2d.rotate(-theta);
-		g2d.translate(-700, -75);
+		g2d.drawLine(-10,50,0,60);
+		g2d.drawLine(0, 0, 0, 60);
+		g2d.drawLine(10, 50, 0, 60);
+		
+		g2d.rotate(-2*Math.PI+theta);
+		g2d.translate(-735, -75);
 
 		
 		
