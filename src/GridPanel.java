@@ -89,8 +89,8 @@ public class GridPanel extends JPanel implements KeyListener{
 
 		//g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		g.setColor(Color.WHITE);
-		//g.fillRect(0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE);
-		g.fillRect(0,0,w.getWidth(),w.getHeight());
+		g.fillRect(0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE);
+		g.fillRect(grid.getNumCols()*GRID_SIZE, 0,w.getWidth()-grid.getNumCols()*GRID_SIZE,w.getHeight());
 		
 		
 		
@@ -109,7 +109,8 @@ public class GridPanel extends JPanel implements KeyListener{
 			}
 			
 		}
-		
+		g.setColor(Color.WHITE);
+		g.fillRect(grid.getNumCols()*GRID_SIZE, 0,w.getWidth()-grid.getNumCols()*GRID_SIZE,w.getHeight());
 
 		int x = grid.getCharacter().getCol()*GRID_SIZE;
 		int y = grid.getCharacter().getRow()*GRID_SIZE;
