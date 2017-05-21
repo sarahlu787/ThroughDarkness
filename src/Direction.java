@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -55,14 +56,14 @@ public class Direction
 	/**
 	 * The paint method draws the direction on the screen.
 	 */
-	public void paint(Graphics g, double degree)
+	public void paint(Graphics g, double theta)
 	{
 		int size = GridPanel.GRID_SIZE;
 		g.setColor(Color.BLACK);
-		double x2 = Math.sin(degree)*size*3;
-		double y2 = Math.cos(degree)*size*3;
+		double x2 = Math.sin(theta)*size*3;
+		double y2 = Math.cos(theta)*size*3;
 		
-		double degrees = degree/Math.PI*180.0;
+		
 		
 	
 		
@@ -73,16 +74,21 @@ public class Direction
 		g.fillRect(650, 0, 150, 150);
 		
 		g.setColor(Color.BLACK);
-		//g.drawLine(size*3,height-size*3, size*3+(int)x2, height-size*3+(int)y2);
+		
 		g.drawLine(700,75, 700+(int)x2, 75+(int)y2);
 		g.fillOval(700+(int)x2-10, 75+(int)y2-10, 20,20);
 		
-		//g.setColor(null);
-		
 
+		Graphics2D g2d = (Graphics2D) g;
+
+		g2d.translate(700, 75);
+		g2d.rotate(theta);
 		
+		g2d.drawLine(0, 0, 100, 0);
 		
-		
+		g2d.rotate(-theta);
+		g2d.translate(-700, -75);
+
 		
 		
 		//g.drawOval(size*3+(int)x2, height-size*3+(int)y2, 20, 20);

@@ -124,8 +124,7 @@ public class GridPanel extends JPanel implements KeyListener{
 			
 		}
 		
-		Graphics2D g2 = (Graphics2D)g;
-		
+
 		int x = grid.getCharacter().getCol()*GRID_SIZE;
 		int y = grid.getCharacter().getRow()*GRID_SIZE;
 		
@@ -141,12 +140,13 @@ public class GridPanel extends JPanel implements KeyListener{
 		//g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		//grid.getCharacter().paint(g, grid.getcr(), grid.getcc());
 		
-		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
-		direction.paint(g, degree);
+		double theta = direction.getDirection(grid.getCharacter(), grid.getExit());
+		direction.paint(g, theta);
 
 		
-		g2.setStroke(new BasicStroke(100));
-		g2.drawOval(x-114, y-114, 244, 244);
+		Graphics2D g2d = (Graphics2D)g;
+		g2d.setStroke(new BasicStroke(100));
+		g2d.drawOval(x-114, y-114, 244, 244);
 		
 	}
 	
