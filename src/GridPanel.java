@@ -1,6 +1,8 @@
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -122,13 +124,19 @@ public class GridPanel extends JPanel implements KeyListener{
 			
 		}
 		
+		Graphics2D g2 = (Graphics2D)g;
+		
+		int x = grid.getCharacter().getCol()*GRID_SIZE;
+		int y = grid.getCharacter().getRow()*GRID_SIZE;
+		
+
 		
 		g.setColor(Color.BLACK);
-		g.fillRect(0,0, grid.getCharacter().getCol()*GRID_SIZE-64, grid.getCharacter().getRow()*GRID_SIZE-64);
-		g.fillRect(0, grid.getCharacter().getRow()*GRID_SIZE-64, grid.getCharacter().getCol()*GRID_SIZE-64, grid.getNumRows()*GRID_SIZE-(grid.getCharacter().getRow()*GRID_SIZE-64));
-		g.fillRect(grid.getCharacter().getCol()*GRID_SIZE-64,grid.getCharacter().getRow()*GRID_SIZE+GRID_SIZE+64,grid.getNumCols()*GRID_SIZE-(grid.getCharacter().getCol()*GRID_SIZE-64),grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(grid.getCharacter().getRow()*GRID_SIZE-64));
-		g.fillRect(grid.getCharacter().getCol()*GRID_SIZE-64, 0, grid.getNumCols()*GRID_SIZE-(grid.getCharacter().getCol()*GRID_SIZE-64),grid.getCharacter().getRow()*GRID_SIZE-64);
-		g.fillRect(grid.getCharacter().getCol()*GRID_SIZE+64+GRID_SIZE, grid.getCharacter().getRow()*GRID_SIZE-64,grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(grid.getCharacter().getCol()*GRID_SIZE-64),128+GRID_SIZE);
+		g.fillRect(0,0, x-64, y-64);
+		g.fillRect(0, y-64, x-64, grid.getNumRows()*GRID_SIZE-(y-64));
+		g.fillRect(x-64,y+GRID_SIZE+64,grid.getNumCols()*GRID_SIZE-(x-64),grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(y-64));
+		g.fillRect(x-64, 0, grid.getNumCols()*GRID_SIZE-(x-64),y-64);
+		g.fillRect(x+64+GRID_SIZE, y-64,grid.getNumRows()*GRID_SIZE-128-GRID_SIZE-(x-64),128+GRID_SIZE);
 		
 		//g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		//grid.getCharacter().paint(g, grid.getcr(), grid.getcc());
@@ -136,6 +144,9 @@ public class GridPanel extends JPanel implements KeyListener{
 		double degree = direction.getDirection(grid.getCharacter(), grid.getExit());
 		direction.paint(g, degree);
 
+		
+		g2.setStroke(new BasicStroke(100));
+		g2.drawOval(x-114, y-114, 244, 244);
 		
 	}
 	
