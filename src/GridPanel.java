@@ -46,7 +46,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	    addKeyListener(this);
 
 		button1 = new JButton("BACK");
-		button1.setBounds(w.getWidth()/2-50,w.getHeight()-60,100,20);
+		button1.setBounds(w.getWidth()/2-50,w.getHeight()-100,100,20);
 
 		button1.addActionListener(new ActionListener() {
 			@Override
@@ -56,11 +56,10 @@ public class GridPanel extends JPanel implements KeyListener{
 			
 		});
 		add(button1);
-	
 		
 		
 		button2 = new JButton("RESET CHARACTER");
-		button2.setBounds(w.getWidth()/2-100,w.getHeight()-40,200,20);
+		button2.setBounds(w.getWidth()/2-100,w.getHeight()-70,200,20);
 
 		button2.addActionListener(new ActionListener() {
 			@Override
@@ -83,16 +82,19 @@ public class GridPanel extends JPanel implements KeyListener{
 	 * @param g the Graphics component
 	 */
 	protected void paintComponent(Graphics g) {
+		
+		
+		
 		//g.drawLine(10, 20, 30, 40);
 		
 		//g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 
 		//g.drawImage(background, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE);
-		g.fillRect(grid.getNumCols()*GRID_SIZE, 0,w.getWidth()-grid.getNumCols()*GRID_SIZE,w.getHeight());
+		//g.fillRect(0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE);
+		//g.fillRect(grid.getNumCols()*GRID_SIZE, 0,w.getWidth()-grid.getNumCols()*GRID_SIZE,w.getHeight());
 		
-		
+		g.fillRect(0, 0, w.getWidth(), w.getHeight());
 		
 		
 		
@@ -127,13 +129,21 @@ public class GridPanel extends JPanel implements KeyListener{
 		//g.drawImage(blackBG, 0, 0, grid.getNumCols()*GRID_SIZE, grid.getNumRows()*GRID_SIZE, this);
 		//grid.getCharacter().paint(g, grid.getcr(), grid.getcc());
 		
+		Graphics2D g2d = (Graphics2D)g;
+		g2d.setStroke(new BasicStroke(100));
+		g2d.drawOval(x-90, y-90, 196, 196);
+		
+		g.setColor(Color.WHITE);
+		g.fillRect(grid.getNumCols()*GRID_SIZE, 0,w.getWidth()-grid.getNumCols()*GRID_SIZE,w.getHeight());
+		g.fillRect(0, grid.getNumRows()*GRID_SIZE, w.getWidth(), w.getHeight()-grid.getNumRows()*GRID_SIZE);
+		
+		g.setColor(Color.BLACK);
+		
 		double theta = direction.getDirection(grid.getCharacter(), grid.getExit());
 		direction.paint(g, theta);
 
 		
-		Graphics2D g2d = (Graphics2D)g;
-		g2d.setStroke(new BasicStroke(100));
-		g2d.drawOval(x-90, y-90, 196, 196);
+		
 		
 		
 		int col = grid.getCharacter().getCol();
@@ -142,6 +152,8 @@ public class GridPanel extends JPanel implements KeyListener{
 		int eRow = grid.getExit().getRow();
 		if (row == eRow-1 && col == eCol || row == eRow+1 && col == eCol || row == eRow && col == eCol-1 || row == eRow && col == eCol+1)
 			w.changePanel("success");
+		
+		
 		
 		
 	}
