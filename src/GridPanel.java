@@ -32,6 +32,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	private JButton button1;
 	private JButton button2;
 	private JButton button3;
+
 	
 	/**
 	 * The constructor sets the grid.
@@ -194,7 +195,7 @@ public class GridPanel extends JPanel implements KeyListener{
 		
 	}
 
-
+	
 	
 	/**
 	 * Creates a new grid and sets its size.

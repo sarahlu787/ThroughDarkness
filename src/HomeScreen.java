@@ -23,7 +23,6 @@ public class HomeScreen extends JPanel {
 	private Image image;
 	private JButton button,button1,button2;
 	private Label title;
-	private int count = 0;
 	
 	/**
 	 * The constructor sets the background and adds the buttons.
@@ -33,6 +32,7 @@ public class HomeScreen extends JPanel {
 		image = new ImageIcon("background.jpg").getImage();
 		this.w = w;
 		button = new JButton("START");
+		
 
 		setLayout(null);
 		button.setBounds(w.getWidth()/2-50,w.getHeight()/2-60,100,20);
@@ -41,7 +41,6 @@ public class HomeScreen extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				w.startGame();
-				count++;
 			}
 			
 		});
@@ -61,20 +60,6 @@ public class HomeScreen extends JPanel {
 		add(button1);
 		
 		
-		if(count >=1) {
-			button2 = new JButton("Continue");
-			button2.setBounds(w.getWidth()/2-80,w.getHeight()/2-120,160,20);
-			button2.addActionListener(new ActionListener() {
-	
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					w.changePanel("gridPanel");
-					
-				}
-				
-			});
-			add(button2);
-		}
 		
 		
 	}

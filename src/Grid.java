@@ -71,6 +71,8 @@ public class Grid extends AbstractGrid<Actor>
 				}
 			}
 		}
+		
+		
 		exit = new Exit();
 		exit.putSelfInGrid(this, new Location(er,ec));
 		character = new Character();
@@ -113,10 +115,12 @@ public class Grid extends AbstractGrid<Actor>
 		cc = c;
 		
 		int r2 = 0,c2 = 0;
-		while((r2<=2 || r2>rows-2) || (c2<=2 || c2>cols-2) || Math.abs(cr-r2) < 10 || Math.abs(cc-c2) < 10)
-		{
+		while((r2<=2 || r2>rows-2) || (c2<=2 || c2>cols-2) || Math.abs(cr-r2) < 10 || Math.abs(cc-c2) < 10) {
+				
 			r2 = (int)(Math.random()*rows);
 			c2 = (int)(Math.random()*cols);
+				
+			
 		}
 		//isWall[r2][c2] = false;
 		er = r2;
