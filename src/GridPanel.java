@@ -47,7 +47,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	    addKeyListener(this);
 
 		button1 = new JButton("BACK");
-		button1.setBounds(w.getWidth()/2-50,w.getHeight()-100,100,20);
+		button1.setBounds(w.getWidth()/2-50,w.getHeight()-90,100,20);
 
 		button1.addActionListener(new ActionListener() {
 			@Override
@@ -60,7 +60,7 @@ public class GridPanel extends JPanel implements KeyListener{
 		
 		
 		button2 = new JButton("RESET CHARACTER");
-		button2.setBounds(w.getWidth()/2-100,w.getHeight()-70,200,20);
+		button2.setBounds(w.getWidth()/2-100,w.getHeight()-60,200,20);
 
 		button2.addActionListener(new ActionListener() {
 			@Override
