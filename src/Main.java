@@ -18,7 +18,7 @@ public class Main extends JFrame{
 		super(title);
 		bgm.play();
 		
-		setBounds(100, 100, 800, 800);
+		setBounds(100, 100, 800, 750);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    cardPanel = new JPanel();
