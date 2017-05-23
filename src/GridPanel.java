@@ -36,7 +36,7 @@ public class GridPanel extends JPanel implements KeyListener{
 	
 	/**
 	 * The constructor sets the grid.
-	 * @param grid the grid object from Main
+	 * @param w Main object
 	 */
 	public GridPanel(Main w) {
 		this.w = w;

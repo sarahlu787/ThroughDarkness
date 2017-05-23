@@ -45,6 +45,7 @@ public class Direction
 	 * The getDirection method finds the direction from the Character to the Exit.
 	 * @param c the Character object
 	 * @param e the Exit object
+	 * @return the angle between exit and character in radians
 	 */
 	public double getDirection(Character c, Exit e)
 	{
@@ -62,6 +63,8 @@ public class Direction
 
 	/**
 	 * The paint method draws the direction on the screen.
+	 * @param g the Graphics object
+	 * @param theta the angle between exit and character in radians
 	 */
 	public void paint(Graphics g, double theta)
 	{
