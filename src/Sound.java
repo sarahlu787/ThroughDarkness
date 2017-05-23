@@ -3,6 +3,7 @@ import java.io.IOException;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
@@ -10,6 +11,7 @@ import javax.sound.sampled.SourceDataLine;
 public class Sound implements Runnable
 {
   private SourceDataLine line = null;
+  private Clip clip = null;
   private byte[] audioBytes;
   private int numBytes;
 
@@ -33,15 +35,17 @@ public class Sound implements Runnable
     try
     {
       line = (SourceDataLine)AudioSystem.getLine(info);
-      line.open(audioFormat);
+      clip = AudioSystem.getClip();
+      clip.open(audioInputStream);
     }
-    catch (LineUnavailableException ex)
+    catch (Exception ex)
     {
       System.out.println("*** Audio line unavailable ***");
       System.exit(1);
     }
 
-    line.start();
+    clip.loop(Clip.LOOP_CONTINUOUSLY);
+    clip.start();
 
     audioBytes = new byte[(int)soundFile.length()];
 

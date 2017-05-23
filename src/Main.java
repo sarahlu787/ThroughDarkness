@@ -8,6 +8,8 @@ public class Main extends JFrame{
 	JPanel cardPanel;
 	GridPanel gridPanel;
 	Sound bgm = new Sound("Misty-Bog_Looping.wav");
+	//Sound bgm = new Sound("jump.wav");
+	
 	/**
 	 * The constructor creates the HomeScreen, Grid, and adds them o the window. 
 	 * It also sets the number of rows and columns in the grid.
